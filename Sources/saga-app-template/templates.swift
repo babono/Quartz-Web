@@ -166,7 +166,7 @@ func renderHomePage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
 
         // Right: floating crystal visual
         div(class: "flex-shrink-0 flex items-center justify-center w-72 h-72 md:w-96 md:h-96") {
-          img(alt: "Quartz Crystal — your focus currency", class: "w-full h-full object-contain pulse-breathing drop-shadow-2xl", src: "/static/assets/crystal.png")
+          img(alt: "Quartz Crystal — your focus currency", class: "w-full h-full object-contain pulse-breathing drop-shadow-2xl", src: "./static/assets/crystal.png")
         }
       }
     }
@@ -215,7 +215,7 @@ func renderHomePage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
           // Right screenshot
           div(class: "flex-1 order-1 md:order-2 flex justify-center") {
             div(class: "relative glass-card glow-blue p-2 max-w-xs w-full") {
-              img(alt: "Quartz home screen showing the doomscroll quota timer ring", class: "w-full rounded-xl", src: "/static/assets/06_home page_play.png")
+              img(alt: "Quartz home screen showing the doomscroll quota timer ring", class: "w-full rounded-xl", src: "./static/assets/06_home page_play.png")
             }
           }
         }
@@ -274,7 +274,7 @@ func renderHomePage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
           // Gym screenshot
           div(class: "flex-1 max-w-sm mx-auto lg:mx-0 flex justify-center lg:justify-end") {
             div(class: "glass-card glow-purple p-2") {
-              img(alt: "Quartz Attention Gym arcade game grid", class: "w-full rounded-xl", src: "/static/assets/07_game.png")
+              img(alt: "Quartz Attention Gym arcade game grid", class: "w-full rounded-xl", src: "./static/assets/07_game.png")
             }
           }
         }
@@ -368,7 +368,7 @@ func renderHomePage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
           // Left: screenshot
           div(class: "flex-1 flex justify-center md:justify-start") {
             div(class: "glass-card glow-green p-2 max-w-xs w-full") {
-              img(alt: "Quartz leaderboard showing ranked users and streak badges", class: "w-full rounded-xl", src: "/static/assets/08_rank.png")
+              img(alt: "Quartz leaderboard showing ranked users and streak badges", class: "w-full rounded-xl", src: "./static/assets/08_rank.png")
             }
           }
           // Right: copy block
