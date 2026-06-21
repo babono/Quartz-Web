@@ -215,7 +215,7 @@ func renderHomePage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
           // Right screenshot
           div(class: "flex-1 order-1 md:order-2 flex justify-center") {
             div(class: "relative glass-card glow-blue p-2 max-w-xs w-full") {
-              img(alt: "Quartz home screen showing the doomscroll quota timer ring", class: "w-full rounded-xl", src: "/static/assets/homefix.png")
+              img(alt: "Quartz home screen showing the doomscroll quota timer ring", class: "w-full rounded-xl", src: "./static/assets/homefix.png")
             }
           }
         }
@@ -368,7 +368,7 @@ func renderHomePage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
           // Left: screenshot
           div(class: "flex-1 flex justify-center md:justify-start") {
             div(class: "glass-card glow-green p-2 max-w-xs w-full") {
-              img(alt: "Quartz leaderboard showing ranked users and streak badges", class: "w-full rounded-xl", src: "/static/assets/rank-fix.png")
+              img(alt: "Quartz leaderboard showing ranked users and streak badges", class: "w-full rounded-xl", src: "./static/assets/rank-fix.png")
             }
           }
           // Right: copy block
