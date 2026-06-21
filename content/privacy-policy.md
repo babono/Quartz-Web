@@ -10,7 +10,7 @@ Quartz is built with your privacy as a non-negotiable.
 
 ### What We Collect
 
-Quartz does not collect, transmit, or sell any personally identifiable information. All data — including your focus sessions, doomscroll quota, Prisma balance, and app selections — is stored **locally on your device** using Apple's on-device frameworks.
+Quartz does not collect, transmit, or sell any personally identifiable information. All data — including your focus sessions, doomscroll quota, Quartz balance, and app selections — is stored **locally on your device** using Apple's on-device frameworks.
 
 ### Screen Time Access
 

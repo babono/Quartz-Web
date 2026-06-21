@@ -148,7 +148,7 @@ func renderHomePage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
           }
 
           p(class: "max-w-lg text-lg text-muted leading-relaxed") {
-            "Break the infinite doomscroll loop. Shield your feeds, complete focus arcade challenges to earn screen time, and stack Prismas as you master your attention."
+            "Break the infinite doomscroll loop. Shield your feeds, complete focus arcade challenges to earn screen time, and stack Quartz as you master your attention."
           }
 
           div(class: "flex flex-col sm:flex-row items-center self-center md:self-start gap-4 mt-2") {
@@ -215,7 +215,7 @@ func renderHomePage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
           // Right screenshot
           div(class: "flex-1 order-1 md:order-2 flex justify-center") {
             div(class: "relative glass-card glow-blue p-2 max-w-xs w-full") {
-              img(alt: "Quartz home screen showing the doomscroll quota timer ring", class: "w-full rounded-xl", src: "./static/assets/06_home page_play.png")
+              img(alt: "Quartz home screen showing the doomscroll quota timer ring", class: "w-full rounded-xl", src: "/static/assets/homefix.png")
             }
           }
         }
@@ -293,14 +293,14 @@ func renderHomePage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
             span(class: "gradient-text-purple-blue") { "by design." }
           }
           p(class: "text-muted max-w-xl mx-auto") {
-            "Focus isn't just about blocking. It earns. The longer your focus session runs uninterrupted, the more your attention multiplier compounds — reaching up to 2.0× at 5 hours. Your remaining quota converts to Prismas at midnight."
+            "Focus isn't just about blocking. It earns. The longer your focus session runs uninterrupted, the more your attention multiplier compounds — reaching up to 2.0× at 5 hours. Your remaining quota converts to Quartz at midnight."
           }
         }
 
         div(class: "glass-card glow-purple max-w-2xl mx-auto") {
           div(class: "mb-6") {
             h3(class: "font-display text-lg font-bold text-ink mb-1") { "Compounding Effect Table" }
-            p(class: "text-muted text-sm") { "Prisma rewards scale with your focus time. End early and the surge multiplier is voided." }
+            p(class: "text-muted text-sm") { "Quartz rewards scale with your focus time. End early and the surge multiplier is voided." }
           }
           div(class: "overflow-x-auto") {
             table(class: "economy-table") {
@@ -317,37 +317,37 @@ func renderHomePage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
                   td { "0 min" }
                   td { span(class: "text-muted") { "1.00×" } }
                   td { "45 min" }
-                  td { span(class: "text-neon-green font-bold") { "45 Prismas" } }
+                  td { span(class: "text-neon-green font-bold") { "45 Quartz" } }
                 }
                 tr {
                   td { "60 min" }
                   td { span(class: "text-neon-cyan") { "1.20×" } }
                   td { "40 min" }
-                  td { span(class: "text-neon-green font-bold") { "48 Prismas" } }
+                  td { span(class: "text-neon-green font-bold") { "48 Quartz" } }
                 }
                 tr {
                   td { "120 min" }
                   td { span(class: "text-neon-blue") { "1.40×" } }
                   td { "35 min" }
-                  td { span(class: "text-neon-green font-bold") { "49 Prismas" } }
+                  td { span(class: "text-neon-green font-bold") { "49 Quartz" } }
                 }
                 tr {
                   td { "180 min" }
                   td { span(class: "text-neon-purple") { "1.60×" } }
                   td { "30 min" }
-                  td { span(class: "text-neon-green font-bold") { "48 Prismas" } }
+                  td { span(class: "text-neon-green font-bold") { "48 Quartz" } }
                 }
                 tr {
                   td { "240 min" }
                   td { span(class: "text-neon-magenta") { "1.80×" } }
                   td { "25 min" }
-                  td { span(class: "text-neon-green font-bold") { "45 Prismas" } }
+                  td { span(class: "text-neon-green font-bold") { "45 Quartz" } }
                 }
                 tr {
                   td { "300 min ⚡" }
                   td { span(class: "gradient-text-purple-blue font-extrabold") { "2.00× MAX" } }
                   td { "20 min" }
-                  td { span(class: "text-neon-green font-extrabold text-base") { "40 Prismas" } }
+                  td { span(class: "text-neon-green font-extrabold text-base") { "40 Quartz" } }
                 }
               }
             }
@@ -368,7 +368,7 @@ func renderHomePage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
           // Left: screenshot
           div(class: "flex-1 flex justify-center md:justify-start") {
             div(class: "glass-card glow-green p-2 max-w-xs w-full") {
-              img(alt: "Quartz leaderboard showing ranked users and streak badges", class: "w-full rounded-xl", src: "./static/assets/08_rank.png")
+              img(alt: "Quartz leaderboard showing ranked users and streak badges", class: "w-full rounded-xl", src: "/static/assets/rank-fix.png")
             }
           }
           // Right: copy block
@@ -379,7 +379,7 @@ func renderHomePage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
               span(class: "text-neon-green") { "with stakes." }
             }
             p(class: "text-muted text-base mb-6 leading-relaxed") {
-              "Stack your active streak days. Climb the Prisma leaderboard. Reflect daily on your digital habits. Quartz turns screen-time discipline into something worth competing for."
+              "Stack your active streak days. Climb the Quartz leaderboard. Reflect daily on your digital habits. Quartz turns screen-time discipline into something worth competing for."
             }
             div(class: "flex flex-col gap-4") {
               div(class: "flex items-start gap-3") {
@@ -392,8 +392,8 @@ func renderHomePage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
               div(class: "flex items-start gap-3") {
                 span(class: "flex-shrink-0 text-xl") { "🏆" }
                 div {
-                  p(class: "text-ink font-semibold text-sm mb-0.5") { "Prisma Rankings" }
-                  p(class: "text-muted text-sm") { "Your Prisma balance determines your rank on the global leaderboard." }
+                  p(class: "text-ink font-semibold text-sm mb-0.5") { "Quartz Rankings" }
+                  p(class: "text-muted text-sm") { "Your Quartz balance determines your rank on the global leaderboard." }
                 }
               }
               div(class: "flex items-start gap-3") {
@@ -450,7 +450,7 @@ func renderHomePage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
               span(class: "text-muted") { "+" }
             }
             p(class: "faq-answer") {
-              "Quartz provides screen-time monitoring, focus-building arcade activities, daily streaks, a compounding reward economy (Prismas), and reflection tools to help you build healthier digital habits over time."
+              "Quartz provides screen-time monitoring, focus-building arcade activities, daily streaks, a compounding reward economy (Quartz), and reflection tools to help you build healthier digital habits over time."
             }
           }
           div(class: "faq-item") {
