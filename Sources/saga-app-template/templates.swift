@@ -234,7 +234,7 @@ func renderHomePage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
             span(class: "gradient-text-purple-blue") { "Train instead." }
           }
           p(class: "text-muted max-w-2xl mx-auto") {
-            "When your quota runs low, don't panic. Head to the Attention Gym and earn +10 minutes of scroll time by completing focus-based arcade challenges. One game at a time."
+            "When your quota runs low, don't panic. Head to the Attention Gym and earn +5 minutes of scroll time by completing focus-based arcade challenges. One game at a time."
           }
         }
 
@@ -246,35 +246,35 @@ func renderHomePage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
               div(class: "w-10 h-10 rounded-full bg-neon-magenta/20 border border-neon-magenta/30 flex items-center justify-center text-lg") { "🧠" }
               h3(class: "font-display text-base font-bold text-ink") { "Memory Pattern" }
               p(class: "text-muted text-xs leading-relaxed") { "Remember the sequence on the grid, then recreate it exactly before time runs out." }
-              span(class: "mt-auto text-xs font-semibold text-neon-magenta") { "+10 min quota" }
+              span(class: "mt-auto text-xs font-semibold text-neon-magenta") { "+5 min quota" }
             }
             // Word Search
             div(class: "glass-card glow-green flex flex-col gap-3") {
               div(class: "w-10 h-10 rounded-full bg-neon-green/20 border border-neon-green/30 flex items-center justify-center text-lg") { "🔍" }
               h3(class: "font-display text-base font-bold text-ink") { "Word Search" }
               p(class: "text-muted text-xs leading-relaxed") { "Hunt hidden words hidden inside a scrambled letter grid. Beat the clock to win." }
-              span(class: "mt-auto text-xs font-semibold text-neon-green") { "+10 min quota" }
+              span(class: "mt-auto text-xs font-semibold text-neon-green") { "+5 min quota" }
             }
             // Connect Dots
             div(class: "glass-card glow-cyan flex flex-col gap-3") {
               div(class: "w-10 h-10 rounded-full bg-neon-cyan/20 border border-neon-cyan/30 flex items-center justify-center text-lg") { "🔗" }
               h3(class: "font-display text-base font-bold text-ink") { "Connect Dots" }
               p(class: "text-muted text-xs leading-relaxed") { "Match colors and connect all the dots on the board. Paths can't cross." }
-              span(class: "mt-auto text-xs font-semibold text-neon-cyan") { "+10 min quota" }
+              span(class: "mt-auto text-xs font-semibold text-neon-cyan") { "+5 min quota" }
             }
             // Wave Runner
             div(class: "glass-card glow-purple flex flex-col gap-3") {
               div(class: "w-10 h-10 rounded-full bg-neon-purple/20 border border-neon-purple/30 flex items-center justify-center text-lg") { "🌊" }
               h3(class: "font-display text-base font-bold text-ink") { "Wave Runner" }
               p(class: "text-muted text-xs leading-relaxed") { "Ride the wave path and dodge incoming spikes. Reaction time is everything." }
-              span(class: "mt-auto text-xs font-semibold text-neon-purple") { "+10 min quota" }
+              span(class: "mt-auto text-xs font-semibold text-neon-purple") { "+5 min quota" }
             }
           }
 
           // Gym screenshot
           div(class: "flex-1 max-w-sm mx-auto lg:mx-0 flex justify-center lg:justify-end") {
             div(class: "glass-card glow-purple p-2") {
-              img(alt: "Quartz Attention Gym arcade game grid", class: "w-full rounded-xl", src: "./static/assets/07_game.png")
+              img(alt: "Quartz Attention Gym arcade game grid", class: "w-full rounded-xl", src: "./static/assets/gamefix.png")
             }
           }
         }

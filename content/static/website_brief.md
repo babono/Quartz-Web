@@ -42,8 +42,8 @@ This document outlines the strategic branding, copywriting, visual direction, an
 * **Copy:** Explains the Screen Time API integration. Explain how the app shields social media and gaming feeds natively during active focus sessions.
 
 ### III. The Attention Gym (Re-earn Your Time)
-* **Visuals:** Two-column grid showing detail cards for the arcade games alongside the gym grid screenshot (`07_game.png`).
-* **Copy:** "Refine your mind." Explain that instead of cheating or bypassing blocks, you can play focus-based arcade challenges to add +10 minutes to your daily doomscroll quota.
+* **Visuals:** Two-column grid showing detail cards for the arcade games alongside the gym grid screenshot (`gamefix.png`).
+* **Copy:** "Refine your mind." Explain that instead of cheating or bypassing blocks, you can play focus-based arcade challenges to add +5 minutes to your daily doomscroll quota.
   * **Memory Pattern:** Remember the grid sequence and repeat it.
   * **Word Search:** Beat the clock hunting hidden words.
   * **Connect Dots:** Connect node paths without overlap.
@@ -54,7 +54,7 @@ This document outlines the strategic branding, copywriting, visual direction, an
 * **Copy:** "Dopamine balancing by design." Describe how keeping focus active increases your attention multiplier, compounding the Prismas you earn at midnight. Warn that turning focus off early destroys the streak and voids the surge multiplier.
 
 ### V. Leaderboard & Competition (Compete & Reflect)
-* **Visuals:** Leaderboard card layout showing user ranks and streak badges (`08_rank.png`).
+* **Visuals:** Leaderboard card layout showing user ranks and streak badges (`rank-fix.png`).
 * **Copy:** Mindful phone use is better with friends. Track streaks, climb the attention leaderboard, and reflect on daily digital habits.
 
 ### VI. Frequently Asked Questions (FAQ)
@@ -86,8 +86,8 @@ This document outlines the strategic branding, copywriting, visual direction, an
 ## 5. Asset Mapping
 * `content/static/assets/crystal.png` $\rightarrow$ Hero Section / Quartz Coin.
 * `content/static/assets/06_home page_play.png` $\rightarrow$ Doomscroll Quota / Focus Monitor section.
-* `content/static/assets/07_game.png` $\rightarrow$ Attention Gym / Focus Arcade section.
-* `content/static/assets/08_rank.png` $\rightarrow$ Compete & Reflect / Leaderboard section.
+* `content/static/assets/gamefix.png` $\rightarrow$ Attention Gym / Focus Arcade section.
+* `content/static/assets/rank-fix.png` $\rightarrow$ Compete & Reflect / Leaderboard section.
 * `content/static/assets/design system.png` $\rightarrow$ Reference styling.
 
 ---
