@@ -51,6 +51,7 @@ func baseHtml(title pageTitle: String, @NodeBuilder children: () -> NodeConverti
           }
           div(class: "nav-links") {
             a(href: "/privacy-policy") { "Privacy Policy" }
+            a(href: "/terms-of-service") { "Terms of Service" }
           }
         }
         p {
@@ -468,7 +469,9 @@ func renderHomePage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
               span(class: "text-muted") { "+" }
             }
             p(class: "faq-answer") {
-              "Absolutely not. Quartz operates natively on your device via Apple's Screen Time protocols. Your usage data never leaves your phone. We have zero access to your personal information."
+              "Never. We don't sell your data, and we use no third-party analytics, advertising, or tracking SDKs. Your Screen Time data — the apps you limit and how you use them — stays on your device and is never transmitted. The only information stored in the cloud is what powers the leaderboard and cross-device backup, such as your display name, avatar, and Quartz balance, held securely in Apple's iCloud. See our "
+              a(href: "/privacy-policy") { "Privacy Policy" }
+              " for the full details."
             }
           }
           div(class: "faq-item") {
