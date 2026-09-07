@@ -4,15 +4,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-The Quartz app landing page: a **Next.js 16 (App Router) site with `output: "export"`**, so `next build` emits a fully static HTML/CSS/JS bundle with no server. GitHub Pages serves it from `main`'s `/docs` folder at https://babono.github.io/Quartz-Web/.
+The Quartz app landing page: a **Next.js 16 (App Router) site with `output: "export"`**, so `next build` emits a fully static HTML/CSS/JS bundle with no server. GitHub Pages serves it from `main`'s `/docs` folder at https://www.quartz-focus.com, on a custom domain held by `public/CNAME`.
 
-Because the site lives at a subpath, `next.config.ts` sets `basePath: "/Quartz-Web"`. `next/link` and `next/image` apply it automatically; anything referencing `public/` by hand must go through `assetPath()` in `lib/site.ts` (`next/image` does **not** apply `basePath` to `unoptimized` sources).
+The site is served from the domain root, so `basePath` is empty. It is still wired up throughout: `next/link` and `next/image` apply it automatically, and anything referencing `public/` by hand goes through `assetPath()` in `lib/site.ts`, because `next/image` does **not** apply `basePath` to `unoptimized` sources. Setting `NEXT_PUBLIC_BASE_PATH=/Quartz-Web` builds for the old `github.io` project-page URL.
+
+`public/CNAME` pins the custom domain and is copied into `docs/` by every build. Deleting it makes Pages fall back to `babono.github.io/Quartz-Web`, which then breaks because every asset URL is root-relative.
 
 ## Commands
 
 ```bash
 npm install          # one-time
-npm run dev          # dev server — note the basePath: http://localhost:3000/Quartz-Web
+npm run dev          # dev server at http://localhost:3000
 npm run build        # optimize images, export to out/, then copy to docs/
 npm run typecheck    # tsc --noEmit
 npm run optimize:images   # regenerate public/assets/*.webp from assets-src/

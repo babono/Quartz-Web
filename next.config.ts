@@ -1,9 +1,9 @@
 import type { NextConfig } from "next";
 
-// GitHub Pages serves this repo from https://babono.github.io/Quartz-Web/,
-// so every link and asset needs the /Quartz-Web prefix. If the site ever moves
-// to a custom apex domain, set NEXT_PUBLIC_BASE_PATH="" in the environment.
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "/Quartz-Web";
+// The site is served from the root of https://www.quartz-focus.com, so no path
+// prefix. Set NEXT_PUBLIC_BASE_PATH="/Quartz-Web" to build for the old
+// babono.github.io/Quartz-Web project-page URL instead.
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const nextConfig: NextConfig = {
   // Fully static site: `next build` emits plain HTML/CSS/JS into out/

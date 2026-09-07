@@ -1,7 +1,7 @@
 export const site = {
   name: "Quartz",
   author: "Quartz Team",
-  url: "https://babono.github.io/Quartz-Web",
+  url: "https://www.quartz-focus.com",
   testFlightUrl: "https://testflight.apple.com/join/G8ufCuTB",
   description:
     "Quartz is a gamified screen-time manager and digital wellness sanctuary that helps you break the infinite scrolling loop.",

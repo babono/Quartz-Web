@@ -4,7 +4,7 @@
 
 A Next.js 16 (App Router) site built in static-export mode and served by GitHub Pages from `main`'s `/docs` folder.
 
-- `next.config.ts` sets `output: "export"`, `basePath: "/Quartz-Web"`, and `trailingSlash: true`.
+- `next.config.ts` sets `output: "export"` and `trailingSlash: true`. `basePath` is empty — the site is served from the root of its custom domain, which `public/CNAME` pins.
 - `app/` holds the routes: `page.tsx` (landing page), `[slug]/page.tsx` (one route per Markdown file in `content/`), `not-found.tsx`, `layout.tsx`, and `globals.css`.
 - `components/home/` holds the landing page sections; `components/SiteHeader.tsx` and `SiteFooter.tsx` are the shared chrome.
 - `lib/site.ts` holds site constants, nav links, and `assetPath()`; `lib/markdown.ts` turns `content/*.md` into HTML.
@@ -15,7 +15,7 @@ A Next.js 16 (App Router) site built in static-export mode and served by GitHub 
 ## Build, Test, and Development Commands
 
 - `npm install`: installs dependencies.
-- `npm run dev`: starts the dev server at `http://localhost:3000/Quartz-Web` (the path prefix matters — `basePath` is set).
+- `npm run dev`: starts the dev server at `http://localhost:3000`.
 - `npm run dev -- -p 8080`: same, on a different port.
 - `npm run build`: optimizes images, exports the static site to `out/`, and copies it into `docs/`.
 - `npm run typecheck`: runs `tsc --noEmit` to catch type errors.
@@ -29,7 +29,7 @@ Keep sections as server components — no `"use client"` unless a feature genuin
 
 Tailwind v4 scans source files for literal class strings, so write conditional class names out in full instead of assembling them from fragments at runtime. Design tokens and shared component classes belong in `app/globals.css`, not in ad-hoc utility soup.
 
-Reference `public/` assets through `assetPath()` — `next/image` does not apply `basePath` to `unoptimized` sources, so a bare `/assets/...` string will 404 in production.
+Reference `public/` assets through `assetPath()` — `next/image` does not apply `basePath` to `unoptimized` sources. `basePath` is empty today, but keeping the helper means a future move back to a subpath is a one-line change.
 
 ## Testing Guidelines
 

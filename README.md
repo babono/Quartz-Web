@@ -2,7 +2,7 @@
 
 Landing page for **Quartz**, a gamified screen-time manager and digital wellness app for iOS.
 
-Live at **https://babono.github.io/Quartz-Web/**
+Live at **https://www.quartz-focus.com**
 
 Built with [Next.js 16](https://nextjs.org) (App Router) in static-export mode, [Tailwind CSS v4](https://tailwindcss.com), and TypeScript. The whole site is prerendered to plain HTML — there is no server at runtime.
 
@@ -13,7 +13,7 @@ npm install
 npm run dev
 ```
 
-The dev server runs at **http://localhost:3000/Quartz-Web** — the `/Quartz-Web` prefix is the `basePath`, which matches how GitHub Pages serves this repo.
+The dev server runs at **http://localhost:3000**.
 
 ## Scripts
 
@@ -65,7 +65,11 @@ git add docs && git commit -m "Rebuild site"
 git push
 ```
 
-Committing `docs/` is **required**, not optional. `.github/workflows/pages.yml` also builds and uploads the site on every push to `main`, but the repository's Pages source is still `build_type: legacy` (branch `main`, folder `/docs`), and `actions/configure-pages` with `enablement: true` does not change that on an already-enabled repo — the live site is served from the committed `docs/` folder.
+Committing `docs/` is **required**, not optional. `.github/workflows/pages.yml` also builds and uploads the site on every push to `main`, but the repository's Pages source is `build_type: legacy` (branch `main`, folder `/docs`), and `actions/configure-pages` does not change that on an already-enabled repo — the live site is served from the committed `docs/` folder.
+
+`public/CNAME` holds the custom domain and is copied into `docs/` on every build. Do not delete it; without it GitHub Pages drops the custom domain and reverts to the `github.io` URL.
+
+The site is served from the domain root, so `basePath` is empty. If you ever need to build for the old `babono.github.io/Quartz-Web` project-page URL, set `NEXT_PUBLIC_BASE_PATH=/Quartz-Web`.
 
 To drop the committed build output, switch **Settings → Pages → Source** to *GitHub Actions*. The workflow already does everything else; after that you can remove `docs/` from the repo and add it to `.gitignore`.
 
