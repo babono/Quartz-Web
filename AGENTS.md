@@ -2,40 +2,41 @@
 
 ## Project Structure & Module Organization
 
-This is a Swift Package that builds a Saga static site.
+A Next.js 16 (App Router) site built in static-export mode and served by GitHub Pages from `main`'s `/docs` folder.
 
-- `Package.swift` defines the executable target `saga-app-template` and Saga-related dependencies.
-- `Sources/saga-app-template/main.swift` configures the Saga pipeline from `content/` to `deploy/`.
-- `Sources/saga-app-template/templates.swift` contains all HTML renderers using the Swim DSL.
-- `content/index.md` and `content/articles/*.md` are source content files.
-- `content/static/style.css` is the source stylesheet.
-- `deploy/` is generated production output from Saga. Regenerate it with `saga build` after source or content changes.
+- `next.config.ts` sets `output: "export"`, `basePath: "/Quartz-Web"`, and `trailingSlash: true`.
+- `app/` holds the routes: `page.tsx` (landing page), `[slug]/page.tsx` (one route per Markdown file in `content/`), `not-found.tsx`, `layout.tsx`, and `globals.css`.
+- `components/home/` holds the landing page sections; `components/SiteHeader.tsx` and `SiteFooter.tsx` are the shared chrome.
+- `lib/site.ts` holds site constants, nav links, and `assetPath()`; `lib/markdown.ts` turns `content/*.md` into HTML.
+- `content/*.md` are source content files with `title:` frontmatter.
+- `assets-src/` holds full-resolution image originals; `public/assets/` holds the generated WebP files that the site actually references.
+- `docs/` is generated production output and **is committed** — regenerate it with `npm run build` after any change that affects the rendered site.
 
 ## Build, Test, and Development Commands
 
-- `brew install loopwerk/tap/saga`: installs the Saga CLI if it is missing.
-- `saga dev`: starts the local development server at `http://localhost:3000` with rebuilds for content and source changes.
-- `saga dev --port 8080`: starts the same watcher on a different port.
-- `saga build`: builds the static site into `deploy/`.
-- `swift build`: compiles the Swift package and catches type or dependency errors.
-- `swift package clean`: removes SwiftPM build artifacts when builds behave unexpectedly.
+- `npm install`: installs dependencies.
+- `npm run dev`: starts the dev server at `http://localhost:3000/Quartz-Web` (the path prefix matters — `basePath` is set).
+- `npm run dev -- -p 8080`: same, on a different port.
+- `npm run build`: optimizes images, exports the static site to `out/`, and copies it into `docs/`.
+- `npm run typecheck`: runs `tsc --noEmit` to catch type errors.
+- `npm run optimize:images`: regenerates `public/assets/*.webp` from `assets-src/`.
 
 ## Coding Style & Naming Conventions
 
-Use Swift 6 conventions and match the existing style: two-space indentation, `PascalCase` for types, `camelCase` for functions and variables, and small rendering functions with descriptive names such as `renderArticle` or `baseHtml`. Keep site constants in `SiteMetadata`. Prefer Swim node builders for markup rather than assembling raw HTML strings, except when intentionally injecting parsed Markdown with `Node.raw`.
+Two-space indentation, `PascalCase` for components and types, `camelCase` for functions and variables. Components are named exports in `PascalCase.tsx` files; content files use kebab-case, for example `privacy-policy.md`.
 
-Markdown articles in `content/articles/` should include front matter with `tags`, `summary`, and `date`. Use kebab-case filenames, for example `privacy-policy.md`.
+Keep sections as server components — no `"use client"` unless a feature genuinely needs browser state. Prefer native HTML behaviour over JavaScript (the FAQ is a `<details name="faq">` accordion). Drive repeated markup from a local `const` array rather than copy-pasting blocks.
+
+Tailwind v4 scans source files for literal class strings, so write conditional class names out in full instead of assembling them from fragments at runtime. Design tokens and shared component classes belong in `app/globals.css`, not in ad-hoc utility soup.
+
+Reference `public/` assets through `assetPath()` — `next/image` does not apply `basePath` to `unoptimized` sources, so a bare `/assets/...` string will 404 in production.
 
 ## Testing Guidelines
 
-There is no test target in the package yet. For now, verify changes by running `swift build` and `saga build`; use `saga dev` for browser checks. If tests are added, place them under `Tests/`, name files after the feature under test, and run them with `swift test`.
+There is no test suite. Verify changes with `npm run typecheck` and `npm run build`, and check the result in the browser with `npm run dev`. Confirm both Markdown pages (`/privacy-policy`, `/terms-of-service`) and the 404 page still render after routing or content changes.
 
 ## Commit & Pull Request Guidelines
 
-Recent commits use short, sentence-style messages such as `Adjust needed packages, and build out home page and privacy page.` Keep commits focused and mention the user-visible area changed.
+Commits use short, sentence-style messages such as `Adjust needed packages, and build out home page and privacy page.` Keep commits focused and mention the user-visible area changed.
 
-Pull requests should include a concise summary, verification commands run, and screenshots for visual changes to generated pages. Link related issues when available. Note whether `deploy/` was regenerated.
-
-## Agent-Specific Notes
-
-Do not overwrite unrelated local changes. Avoid editing `deploy/` by hand; change `Sources/` or `content/`, then rebuild. Keep `.DS_Store`, `.build/`, and other local artifacts out of commits.
+Pull requests should include a concise summary, the commands run to verify, and screenshots for visual changes. Note whether `docs/` was regenerated — it should be, in the same commit as the source change.

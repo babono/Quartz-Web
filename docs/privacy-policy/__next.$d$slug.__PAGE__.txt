@@ -1,0 +1,90 @@
+1:"$Sreact.fragment"
+2:T1c7b,<p><strong>Last updated:</strong> June 24, 2026</p>
+<p>This Privacy Policy explains how the Quartz team (&quot;Quartz,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) handles information when you use the Quartz iOS app (the &quot;App&quot;). We built Quartz to help you reduce mindless scrolling, and we designed it to collect as little personal data as possible.</p>
+<p>By using Quartz, you agree to the practices described in this policy.</p>
+<h3>The Short Version</h3>
+<ul>
+<li>Your <strong>Screen Time data</strong> — the apps you choose to limit and how long you use them — <strong>never leaves your device</strong>. We cannot see it.</li>
+<li>We use <strong>Sign in with Apple</strong> for login. We never see your password.</li>
+<li>To power the <strong>leaderboard</strong>, your chosen <strong>display name and avatar are stored publicly</strong> in Apple&#39;s iCloud and are visible to other Quartz users.</li>
+<li>We use <strong>no third-party analytics, advertising, or tracking SDKs</strong>, and we never sell your data.</li>
+<li>You can <strong>delete your account and all associated data</strong> from inside the App at any time.</li>
+</ul>
+<h3>Information We Collect</h3>
+<p><strong>Account information (via Sign in with Apple).</strong> When you sign in, Apple provides us with a unique account identifier and, if you choose to share them, your name and email address. The identifier is stored securely in your device&#39;s Keychain and is used to associate your data with your account. Your name and email (if shared) are stored only on your device and are not uploaded to our leaderboard.</p>
+<p><strong>Leaderboard information (publicly visible).</strong> To take part in the global and monthly leaderboards, the following information is stored in Apple&#39;s iCloud public database and is <strong>readable by other Quartz users</strong>:</p>
+<ul>
+<li>Your chosen <strong>display name / nickname</strong></li>
+<li>Your <strong>avatar image</strong> (if you set one)</li>
+<li>Your <strong>Quartz balance</strong> and <strong>streak count</strong></li>
+<li>The date your entry was last updated</li>
+</ul>
+<p>Please do not use a display name or avatar that reveals information you want to keep private.</p>
+<p><strong>Profile and progress backup (private).</strong> So your progress follows you across your devices, we store a private copy of your data in your own iCloud account. This includes your display name, Quartz balance, streak count, onboarding status, and your focus-session and quota-exchange history. This data is stored in the <strong>private</strong> iCloud database tied to your Apple ID and is not visible to other users.</p>
+<p><strong>On-device Screen Time data.</strong> Quartz uses Apple&#39;s Family Controls, Device Activity, and Managed Settings frameworks to let you select apps, categories, and websites to limit, and to apply shields when your daily quota runs out. These selections and your usage statistics are represented by Apple&#39;s privacy-preserving tokens and are stored <strong>only on your device</strong> (in local app storage and a shared app group). <strong>This information is never transmitted to us or to any server.</strong></p>
+<p><strong>Other on-device data.</strong> Settings such as your language preference, notification preferences, daily quota, and your avatar image file are stored locally on your device.</p>
+<h3>How We Use Your Information</h3>
+<p>We use the information above to:</p>
+<ul>
+<li>Authenticate you and keep you signed in</li>
+<li>Provide core features: quota tracking, app shielding, focus sessions, the Attention Gym games, streaks, and the virtual Quartz economy</li>
+<li>Display and rank entries on the leaderboard</li>
+<li>Back up and restore your profile across your devices</li>
+<li>Send you local notifications (for example, when your quota is depleted) — these are generated on your device</li>
+</ul>
+<h3>Where Your Data Is Stored</h3>
+<p>Account, leaderboard, and profile-backup data are stored in <strong>Apple iCloud / CloudKit</strong>. Apple acts as our data processor for this storage, subject to <a href="https://www.apple.com/legal/privacy/">Apple&#39;s Privacy Policy</a>. All Screen Time and usage data stays on your device.</p>
+<p>The App makes one outbound network request to <code>apple.com</code> to read the current time from the server&#39;s response header (used to keep streaks and quotas tamper-resistant). This request sends no personal information.</p>
+<h3>What We Do <em>Not</em> Do</h3>
+<ul>
+<li>We do <strong>not</strong> use third-party analytics, advertising, attribution, or crash-reporting SDKs.</li>
+<li>We do <strong>not</strong> track you across other apps or websites.</li>
+<li>We do <strong>not</strong> sell, rent, or share your personal information with advertisers or data brokers.</li>
+<li>We do <strong>not</strong> collect your location, contacts, health data, microphone, or camera.</li>
+<li>We do <strong>not</strong> offer real-money in-app purchases. &quot;Quartz&quot; is a virtual in-app currency with no monetary value.</li>
+</ul>
+<h3>Sharing and Disclosure</h3>
+<p>We do not share your personal information with third parties, except:</p>
+<ul>
+<li><strong>Publicly, by design:</strong> leaderboard information (display name, avatar, Quartz balance, streak) is visible to other users, as described above.</li>
+<li><strong>Apple:</strong> as our cloud storage and authentication provider.</li>
+<li><strong>Legal requirements:</strong> if required to comply with applicable law or valid legal process.</li>
+</ul>
+<h3>Data Retention and Deletion</h3>
+<p>Your data is retained while your account is active. You can <strong>delete your account at any time</strong> from within the App. Deleting your account removes both your public leaderboard entry and your private profile backup from iCloud. Data stored only on your device is removed when you delete the App.</p>
+<p>To request deletion or ask a question about your data, contact us at <strong><a href="mailto:babono@me.com">babono@me.com</a></strong>.</p>
+<h3>Security</h3>
+<p>Your Apple account identifier is stored in the device Keychain. Data stored in iCloud is protected by Apple&#39;s security infrastructure. No method of storage or transmission is 100% secure, but we take reasonable measures to protect your information.</p>
+<h3>Children&#39;s Privacy</h3>
+<p>Quartz is a self-managed digital-wellbeing tool intended for users <strong>aged 13 and older</strong>. It is not directed to children under 13, and we do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal information, please contact us so we can remove it.</p>
+<h3>International Users</h3>
+<p>Quartz is operated from Indonesia, and data is stored on Apple&#39;s global infrastructure. By using the App, you understand that your information may be processed in countries other than your own.</p>
+<h3>Changes to This Policy</h3>
+<p>If we update our privacy practices, we will revise this page and update the &quot;Last updated&quot; date above. Significant changes may be communicated in the App.</p>
+<h3>Contact</h3>
+<p>Questions or concerns about your privacy? Reach us at <strong><a href="mailto:babono@me.com">babono@me.com</a></strong>.</p>
+5:X
+a:X
+a:C
+0:{"buildId":"PE2Ti5tQoCtK2w9O17pEX","data":[{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto max-w-3xl px-6 py-20","children":[["$","h1",null,{"className":"mb-8 font-display","children":"Privacy Policy"}],["$","div",null,{"className":"prose-content","dangerouslySetInnerHTML":{"__html":"$2"}}]]}],null,"$L3"]}],"isPartial":"$@4","staleTime":"$5","varyParams":null},{"rsc":"$L6","isPartial":"$@7","staleTime":"$5","varyParams":null},{"rsc":"$L8","isPartial":"$@9","staleTime":"$5","varyParams":"$a"},{"rsc":"$Lb","isPartial":"$@c","staleTime":"$5","varyParams":null}],"isUpgradeableISRFallback":false,"a":"$@d","rootVaryParams":null,"needsRuntimeRequest":"$@e"}
+f:I[97367,["/Quartz-Web/_next/static/chunks/3jnihsg-rcdh1.js"],"OutletBoundary"]
+10:"$Sreact.suspense"
+12:I[97367,["/Quartz-Web/_next/static/chunks/3jnihsg-rcdh1.js"],"ViewportBoundary"]
+13:I[97367,["/Quartz-Web/_next/static/chunks/3jnihsg-rcdh1.js"],"MetadataBoundary"]
+14:I[39756,["/Quartz-Web/_next/static/chunks/3jnihsg-rcdh1.js"],"default"]
+15:I[37457,["/Quartz-Web/_next/static/chunks/3jnihsg-rcdh1.js"],"default"]
+16:I[22016,["/Quartz-Web/_next/static/chunks/3jnihsg-rcdh1.js"],""]
+:HL["/Quartz-Web/_next/static/chunks/2n6stj2a407pl.css","style"]
+3:["$","$Lf",null,{"children":["$","$10",null,{"name":"Next.MetadataOutlet","children":"$@11"}]}]
+6:["$","$1","h",{"children":[null,["$","$L12",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#000000"}]]}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$10",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Privacy Policy — Quartz"}],["$","meta","1",{"name":"description","content":"Quartz is a gamified screen-time manager and digital wellness sanctuary that helps you break the infinite scrolling loop."}],["$","meta","2",{"name":"application-name","content":"Quartz"}],["$","meta","3",{"name":"author","content":"Quartz Team"}],["$","meta","4",{"property":"og:title","content":"Privacy Policy"}],["$","meta","5",{"property":"og:description","content":"Quartz is a gamified screen-time manager and digital wellness sanctuary that helps you break the infinite scrolling loop."}],["$","meta","6",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","7",{"name":"twitter:title","content":"Reduce Noise. Regain Focus. — Quartz"}],["$","meta","8",{"name":"twitter:description","content":"Quartz is a gamified screen-time manager and digital wellness sanctuary that helps you break the infinite scrolling loop."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+8:["$","$1","c",{"children":[null,["$","$L14",null,{"parallelRouterKey":"children","template":["$","$L15",null,{}]}]]}]
+b:["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/Quartz-Web/_next/static/chunks/2n6stj2a407pl.css","precedence":"next"}],["$","script","script-0",{"src":"/Quartz-Web/_next/static/chunks/3jnihsg-rcdh1.js","async":true}]],["$","html",null,{"lang":"en-US","className":"inter_29f246d4-module__8Y_Bfa__variable outfit_654d17a2-module__Sj20lq__variable","children":["$","body",null,{"children":[["$","header",null,{"className":"site-header","children":["$","nav",null,{"className":"site-nav","aria-label":"Main","children":[["$","$L16",null,{"className":"site-title","href":"/","children":[["$","span",null,{"className":"text-neon-purple mr-1","aria-hidden":"true","children":"◆"}],["$","span",null,{"children":"Quartz"}]]}],["$","div",null,{"className":"nav-links hidden md:flex","children":[["$","$L16","/#quota",{"href":"/#quota","children":"Doomscroll Quota"}],["$","$L16","/#gym",{"href":"/#gym","children":"Attention Gym"}],["$","$L16","/#economy",{"href":"/#economy","children":"Focus Economy"}],["$","$L16","/#rank",{"href":"/#rank","children":"Leaderboard"}],["$","$L16","/#faq",{"href":"/#faq","children":"FAQ"}]]}],["$","div",null,{"children":["$","a",null,{"className":"inline-flex items-center justify-center rounded-full bg-neon-purple/20 border border-neon-purple/30 px-4 py-1.5 text-xs font-semibold text-white no-underline hover:bg-neon-purple/40 transition-colors","href":"https://testflight.apple.com/join/G8ufCuTB","children":"TestFlight"}]}]]}]}],["$","main",null,{"children":["$","$L14",null,{"parallelRouterKey":"children","template":["$","$L15",null,{}],"notFound":[["$","div",null,{"className":"container-custom flex min-h-[60vh] flex-col items-center justify-center gap-6 text-center","children":[["$","p",null,{"className":"text-xs font-bold uppercase tracking-widest text-neon-purple","children":"404"}],["$","h1",null,{"className":"font-display text-4xl font-extrabold md:text-5xl","children":["This page went"," ",["$","span",null,{"className":"gradient-text-purple-blue","children":"off the grid."}]]}],["$","p",null,{"className":"max-w-md text-muted","children":"The page you were looking for doesn't exist — or it moved somewhere more focused."}],["$","$L16",null,{"className":"glowing-btn","href":"/","children":"Back to home"}]]}],[]]}]}],["$","footer",null,{"children":[["$","nav",null,{"className":"footer-nav","aria-label":"Footer","children":[["$","$L16",null,{"className":"flex items-center gap-1 font-bold text-ink no-underline hover:text-white","href":"/","children":[["$","span",null,{"className":"text-neon-purple","aria-hidden":"true","children":"◆"}],["$","span",null,{"children":"Quartz"}]]}],["$","div",null,{"className":"nav-links","children":[["$","$L16",null,{"href":"/privacy-policy","children":"Privacy Policy"}],["$","$L16",null,{"href":"/terms-of-service","children":"Terms of Service"}]]}]]}],["$","p",null,{"children":["Built with"," ",["$","a",null,{"href":"https://nextjs.org","children":"Next.js."}]," ","Quartz"," Website © 2026."]}]]}]]}]}]]}]
+11:null
+e:true
+5:300
+5:C
+d:0
+7:"$undefined"
+9:"$undefined"
+c:"$undefined"
+4:"$undefined"

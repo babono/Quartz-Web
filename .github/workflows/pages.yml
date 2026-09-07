@@ -25,15 +25,29 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static site
+        run: npm run build
+
+      # enablement also switches the Pages source to "GitHub Actions" if the
+      # repository is still set to deploy from a branch.
       - name: Configure Pages
         uses: actions/configure-pages@v5
         with:
           enablement: true
 
-      - name: Upload deploy directory
+      - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: deploy
+          path: docs
 
       - name: Deploy to GitHub Pages
         id: deployment

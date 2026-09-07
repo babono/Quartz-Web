@@ -1,68 +1,28 @@
-# Xcode
-#
-# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
-
 .DS_Store
-.build/
-.swiftpm/
-*.xcodeproj
-xcuserdata/
 
-## User settings
-xcuserdata/
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
 
-## Obj-C/Swift specific
-*.hmap
+# next.js
+/.next/
+/out/
+next-env.d.ts
+*.tsbuildinfo
 
-## App packaging
-*.ipa
-*.dSYM.zip
-*.dSYM
+# debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
 
-## Playgrounds
-timeline.xctimeline
-playground.xcworkspace
+# env files
+.env*.local
 
-# Swift Package Manager
-#
-# Add this line if you want to avoid checking in source code from Swift Package Manager dependencies.
-# Packages/
-# Package.pins
-# Package.resolved
-# *.xcodeproj
-#
-# Xcode automatically generates this directory with a .xcworkspacedata file and xcuserdata
-# hence it is not needed unless you have added a package configuration file to your project
-# .swiftpm
+# editors
+.vscode/
+.idea/
 
-.build/
-
-# CocoaPods
-#
-# We recommend against adding the Pods directory to your .gitignore. However
-# you should judge for yourself, the pros and cons are mentioned at:
-# https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
-#
-# Pods/
-#
-# Add this line if you want to avoid checking in source code from the Xcode workspace
-# *.xcworkspace
-
-# Carthage
-#
-# Add this line if you want to avoid checking in source code from Carthage dependencies.
-# Carthage/Checkouts
-
-Carthage/Build/
-
-# fastlane
-#
-# It is recommended to not store the screenshots in the git repo.
-# Instead, use fastlane to re-generate the screenshots whenever they are needed.
-# For more information about the recommended setup visit:
-# https://docs.fastlane.tools/best-practices/source-control/#source-control
-
-fastlane/report.xml
-fastlane/Preview.html
-fastlane/screenshots/**/*.png
-fastlane/test_output
+# NOTE: docs/ is the published site and is intentionally committed —
+# GitHub Pages serves this repo from the main branch's /docs folder.

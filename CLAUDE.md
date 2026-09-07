@@ -4,48 +4,37 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-This is a Swift static site generator project using [Saga](https://github.com/loopwerk/Saga) to produce an app landing page. It outputs to the `deploy/` directory.
+The Quartz app landing page: a **Next.js 16 (App Router) site with `output: "export"`**, so `next build` emits a fully static HTML/CSS/JS bundle with no server. GitHub Pages serves it from `main`'s `/docs` folder at https://babono.github.io/Quartz-Web/.
+
+Because the site lives at a subpath, `next.config.ts` sets `basePath: "/Quartz-Web"`. `next/link` and `next/image` apply it automatically; anything referencing `public/` by hand must go through `assetPath()` in `lib/site.ts` (`next/image` does **not** apply `basePath` to `unoptimized` sources).
 
 ## Commands
 
 ```bash
-# Install the Saga CLI (one-time)
-brew install loopwerk/tap/saga
-
-# Start dev server with live reload at http://localhost:3000
-saga dev
-
-# Production build (outputs to deploy/)
-saga build
-
-# Clean Swift build artifacts
-swift package clean
+npm install          # one-time
+npm run dev          # dev server — note the basePath: http://localhost:3000/Quartz-Web
+npm run build        # optimize images, export to out/, then copy to docs/
+npm run typecheck    # tsc --noEmit
+npm run optimize:images   # regenerate public/assets/*.webp from assets-src/
 ```
+
+`docs/` is generated output but is **committed** — GitHub Pages is configured to deploy from that folder. Run `npm run build` and commit `docs/` alongside any source change that affects the rendered site.
 
 ## Architecture
 
-**Two source files drive everything:**
+- `app/layout.tsx` — root layout: `next/font` (self-hosted Inter + Outfit, exposed as `--font-inter` / `--font-outfit`), site metadata, header, footer.
+- `app/page.tsx` — landing page; composes the section components in `components/home/`.
+- `app/[slug]/page.tsx` — one static route per Markdown file in `content/` (via `generateStaticParams`). Adding `content/foo.md` publishes `/foo`.
+- `app/not-found.tsx` — exported as `404.html`.
+- `app/globals.css` — the whole stylesheet: Tailwind v4 `@theme` tokens, base layer, and the `.glass-card` / `.glow-*` / `.faq-*` / `.prose-content` component classes.
+- `lib/markdown.ts` — gray-matter frontmatter + `marked` (gfm, hard breaks), matching the old Parsley options.
+- `lib/site.ts` — site constants, nav links, `assetPath()`.
 
-- `Sources/saga-app-template/main.swift` — Saga pipeline config. Registers two content pipelines:
-  1. `content/articles/` → rendered with `ArticleMetadata` (tags, summary); produces per-article pages, a listing page, and tag pages
-  2. `content/*.md` (root pages like `index.md`) → rendered with `EmptyMetadata`; produces standalone pages
+## Images
 
-- `Sources/saga-app-template/templates.swift` — All HTML templates using the [Swim](https://github.com/loopwerk/Swim) DSL (Swift HTML builder). `baseHtml()` is the shared layout; `renderArticle`, `renderArticles`, `renderTag`, and `renderPage` are the page-level renderers.
+`assets-src/` holds the full-resolution originals (some are 17–21 MB). `scripts/optimize-images.mjs` (run automatically by `prebuild`) resizes them with sharp to 2× their largest CSS size and writes WebP into `public/assets/`. Reference the `.webp` files, never `assets-src/`. Add new images to the `images` array in that script with the right target width.
 
-**Content:**
-- `content/index.md` — home page
-- `content/articles/*.md` — articles (support frontmatter: `tags`, `summary`, `date`)
-- `content/static/style.css` — the sole stylesheet; referenced via `Saga.hashed()` for cache busting
+## Conventions
 
-**Site-wide constants** (`SiteMetadata` in `main.swift`): update `url`, `name`, and `author` when customizing for a new app.
-
-## Key dependencies
-
-| Package | Role |
-|---|---|
-| Saga | Core pipeline (read → process → write) |
-| SagaParsleyMarkdownReader | Parses Markdown with Parsley/cmark |
-| SagaSwimRenderer | Bridges Swim HTML nodes to Saga writers |
-| Swim (via SagaSwimRenderer) | Swift HTML DSL used in templates |
-| Bonsai | Utility helpers |
-| SwiftTailwind | CSS/Tailwind integration |
+- Section components are server components with no client JS. The FAQ accordion uses native `<details name="faq">` rather than a click handler — keep it that way unless there's a reason not to.
+- Tailwind scans source files for literal class strings, so write conditional classes out in full rather than building them from template pieces.

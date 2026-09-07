@@ -1,0 +1,321 @@
+@import "tailwindcss";
+
+/* ── Design tokens ───────────────────────────────────────────────────────── */
+@theme {
+  /* Font families are injected by next/font in app/layout.tsx, which
+     self-hosts the files and removes the render-blocking Google Fonts call. */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, sans-serif;
+  --font-display: var(--font-outfit), ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, sans-serif;
+
+  --color-ink: #ffffff;
+  --color-muted: #8e9bb0;
+  --color-surface: #0a0b0d;
+  --color-panel: #000000;
+  --color-line: #1e2430;
+
+  --color-accent: #a626f2;
+  --color-accent-dark: #8c1cd1;
+
+  --color-neon-purple: #a626f2;
+  --color-neon-blue: #1307f5;
+  --color-neon-magenta: #f22e9e;
+  --color-neon-green: #33e06b;
+  --color-neon-cyan: #0281ff;
+}
+
+/* ── Base ────────────────────────────────────────────────────────────────── */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply w-full min-h-screen bg-panel font-sans leading-relaxed text-ink antialiased overflow-x-hidden;
+  }
+
+  main {
+    @apply min-h-[80vh];
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight text-ink;
+  }
+
+  h1 {
+    @apply text-4xl font-extrabold md:text-6xl;
+  }
+
+  h2 {
+    @apply text-2xl font-bold md:text-3xl;
+  }
+
+  p {
+    @apply text-muted leading-relaxed;
+  }
+
+  a {
+    @apply text-neon-purple underline-offset-4 transition-colors hover:text-white hover:underline;
+  }
+
+  ol,
+  ul {
+    @apply mb-4 pl-6 list-none;
+  }
+
+  li {
+    @apply mb-1 text-muted;
+  }
+
+  code {
+    @apply rounded bg-line/40 px-1.5 py-0.5 text-[0.9em] text-ink font-mono;
+  }
+
+  pre {
+    @apply mb-4 overflow-x-auto rounded-lg bg-surface border border-line p-4 text-ink;
+  }
+
+  pre code {
+    @apply bg-transparent p-0 text-inherit;
+  }
+
+  /* Glow scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #000000;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1e2430;
+    border-radius: 4px;
+    border: 1px solid rgba(19, 7, 245, 0.2);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(166, 38, 242, 0.3);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* ── Components ──────────────────────────────────────────────────────────── */
+@layer components {
+  .site-header {
+    @apply sticky top-0 z-50 w-full border-b border-line bg-panel/75 backdrop-blur-md py-4 transition-all duration-300;
+  }
+
+  .site-nav,
+  .footer-nav {
+    @apply mx-auto max-w-6xl flex items-center justify-between gap-6 px-6;
+  }
+
+  .site-title {
+    @apply flex items-center gap-2 text-xl font-bold text-ink tracking-tight no-underline hover:text-white hover:no-underline;
+  }
+
+  .nav-links {
+    @apply flex items-center gap-6;
+  }
+
+  .nav-links a {
+    @apply text-sm font-medium text-muted no-underline transition-colors hover:text-white hover:no-underline;
+  }
+
+  .container-custom {
+    @apply mx-auto max-w-6xl px-6 py-16 md:py-24;
+  }
+
+  .glass-card {
+    @apply relative overflow-hidden rounded-2xl border border-line bg-surface/80 p-6 md:p-8 backdrop-blur-md transition-all duration-300;
+  }
+
+  .glass-card:hover {
+    @apply border-white/10;
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 40px -10px rgba(166, 38, 242, 0.25);
+  }
+  .glow-purple:hover {
+    box-shadow: 0 0 50px -5px rgba(166, 38, 242, 0.35);
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 40px -10px rgba(19, 7, 245, 0.25);
+  }
+  .glow-blue:hover {
+    box-shadow: 0 0 50px -5px rgba(19, 7, 245, 0.35);
+  }
+
+  .glow-magenta {
+    box-shadow: 0 0 30px -10px rgba(242, 46, 158, 0.2);
+  }
+
+  .glow-green {
+    box-shadow: 0 0 30px -10px rgba(51, 224, 107, 0.2);
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 30px -10px rgba(2, 129, 255, 0.2);
+  }
+
+  .bg-orb {
+    @apply absolute rounded-full blur-[120px] pointer-events-none opacity-20;
+  }
+
+  .pulse-breathing {
+    animation: breathing 4s ease-in-out infinite alternate;
+  }
+
+  @keyframes breathing {
+    0% {
+      opacity: 0.6;
+      transform: scale(0.98);
+      filter: drop-shadow(0 0 15px rgba(166, 38, 242, 0.3));
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1.02);
+      filter: drop-shadow(0 0 35px rgba(166, 38, 242, 0.6));
+    }
+  }
+
+  .gradient-text-purple-blue {
+    @apply bg-gradient-to-r from-neon-purple to-neon-blue bg-clip-text text-transparent;
+  }
+
+  .gradient-text-cyan-blue {
+    @apply bg-gradient-to-r from-neon-cyan to-neon-blue bg-clip-text text-transparent;
+  }
+
+  .glowing-btn {
+    @apply relative inline-flex items-center justify-center overflow-hidden rounded-full px-8 py-3 text-sm font-semibold text-white no-underline shadow-lg transition-all duration-300 hover:no-underline hover:scale-[1.03] active:scale-[0.98];
+    background: linear-gradient(135deg, #a626f2 0%, #1307f5 100%);
+    box-shadow: 0 4px 20px rgba(166, 38, 242, 0.4);
+  }
+
+  .glowing-btn:hover {
+    box-shadow: 0 6px 30px rgba(166, 38, 242, 0.6), 0 0 15px rgba(19, 7, 245, 0.4);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full border border-line bg-surface/50 px-8 py-3 text-sm font-semibold text-white no-underline backdrop-blur-sm transition-all duration-300 hover:bg-surface hover:border-white/20 hover:no-underline;
+  }
+
+  .economy-table {
+    @apply w-full text-left border-collapse text-sm;
+  }
+
+  .economy-table th {
+    @apply border-b border-line py-3 px-4 text-muted font-semibold;
+  }
+
+  .economy-table td {
+    @apply border-b border-line py-4 px-4 text-ink font-medium;
+  }
+
+  .economy-table tr:last-child td {
+    @apply border-b-0;
+  }
+
+  footer {
+    @apply mt-20 border-t border-line bg-surface/30 py-10 text-sm text-muted;
+  }
+
+  footer p {
+    @apply mb-0 mt-4 text-sm text-center;
+  }
+
+  .faq-item {
+    @apply border-b border-line py-5 last:border-b-0;
+  }
+
+  .faq-question {
+    @apply flex w-full cursor-pointer list-none items-center justify-between border-none bg-transparent py-1 text-left text-base font-semibold text-ink transition-colors hover:text-neon-purple;
+  }
+
+  /* Replace the native disclosure triangle with the +/- affordance. */
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-question::after {
+    content: "+";
+    @apply ml-4 text-muted;
+  }
+
+  .faq-item[open] > .faq-question::after {
+    content: "\2212";
+  }
+
+  .faq-answer {
+    @apply mt-3 text-sm text-muted leading-relaxed;
+  }
+}
+
+/* ── Markdown pages (privacy policy, terms of service) ───────────────────── */
+@layer components {
+  .prose-content h2 {
+    @apply mt-10 mb-3 text-xl font-bold md:text-2xl;
+  }
+
+  .prose-content h3 {
+    @apply mt-10 mb-3 text-lg font-bold text-ink md:text-xl;
+  }
+
+  .prose-content h4 {
+    @apply mt-6 mb-2 text-base font-semibold text-ink;
+  }
+
+  .prose-content p {
+    @apply mb-4 text-[0.95rem];
+  }
+
+  .prose-content strong {
+    @apply font-semibold text-ink;
+  }
+
+  .prose-content ul {
+    @apply mb-4 list-disc pl-6 marker:text-neon-purple;
+  }
+
+  .prose-content ol {
+    @apply mb-4 list-decimal pl-6 marker:text-neon-purple;
+  }
+
+  .prose-content li {
+    @apply mb-2 text-[0.95rem];
+  }
+
+  .prose-content hr {
+    @apply my-10 border-line;
+  }
+
+  .prose-content table {
+    @apply mb-6 w-full border-collapse text-left text-sm;
+  }
+
+  .prose-content th {
+    @apply border-b border-line px-4 py-3 font-semibold text-muted;
+  }
+
+  .prose-content td {
+    @apply border-b border-line px-4 py-3 text-ink;
+  }
+}

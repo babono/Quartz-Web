@@ -1,0 +1,29 @@
+{
+  "name": "quartz-web",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build && node scripts/publish-docs.mjs",
+    "prebuild": "node scripts/optimize-images.mjs",
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "start": "npx serve docs",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "marked": "^18.0.11",
+    "next": "^16.3.4",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^26.4.1",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "sharp": "^0.35.4",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2"
+  }
+}
