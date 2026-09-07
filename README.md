@@ -65,7 +65,9 @@ git add docs && git commit -m "Rebuild site"
 git push
 ```
 
-`.github/workflows/pages.yml` also builds and deploys on every push to `main`. It calls `actions/configure-pages` with `enablement: true`, which switches the Pages source over to GitHub Actions on its first successful run — after that, committing `docs/` is belt-and-braces rather than required.
+Committing `docs/` is **required**, not optional. `.github/workflows/pages.yml` also builds and uploads the site on every push to `main`, but the repository's Pages source is still `build_type: legacy` (branch `main`, folder `/docs`), and `actions/configure-pages` with `enablement: true` does not change that on an already-enabled repo — the live site is served from the committed `docs/` folder.
+
+To drop the committed build output, switch **Settings → Pages → Source** to *GitHub Actions*. The workflow already does everything else; after that you can remove `docs/` from the repo and add it to `.gitignore`.
 
 ## Performance notes
 

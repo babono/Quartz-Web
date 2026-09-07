@@ -18,7 +18,7 @@ npm run typecheck    # tsc --noEmit
 npm run optimize:images   # regenerate public/assets/*.webp from assets-src/
 ```
 
-`docs/` is generated output but is **committed** — GitHub Pages is configured to deploy from that folder. Run `npm run build` and commit `docs/` alongside any source change that affects the rendered site.
+`docs/` is generated output but is **committed** — Pages is set to `build_type: legacy` (branch `main`, folder `/docs`), and that is what actually serves the live site. The Actions workflow builds and uploads too, but does not override the branch source. Run `npm run build` and commit `docs/` alongside any source change that affects the rendered site, or the deploy will ship stale HTML.
 
 ## Architecture
 
