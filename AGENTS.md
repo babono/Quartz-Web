@@ -25,7 +25,7 @@ A Next.js 16 (App Router) site built in static-export mode and served by GitHub 
 
 Two-space indentation, `PascalCase` for components and types, `camelCase` for functions and variables. Components are named exports in `PascalCase.tsx` files; content files use kebab-case, for example `privacy-policy.md`.
 
-Keep sections as server components — no `"use client"` unless a feature genuinely needs browser state. Prefer native HTML behaviour over JavaScript (the FAQ is a `<details name="faq">` accordion). Drive repeated markup from a local `const` array rather than copy-pasting blocks.
+Keep sections as server components — no `"use client"` unless a feature genuinely needs browser state. `components/NavLinks.tsx` is the only client component; it reads scroll position to highlight the current section. Prefer native HTML behaviour over JavaScript (the FAQ is a `<details name="faq">` accordion). Drive repeated markup from a local `const` array rather than copy-pasting blocks.
 
 Tailwind v4 scans source files for literal class strings, so write conditional class names out in full instead of assembling them from fragments at runtime. Design tokens and shared component classes belong in `app/globals.css`, not in ad-hoc utility soup.
 
@@ -40,3 +40,13 @@ There is no test suite. Verify changes with `npm run typecheck` and `npm run bui
 Commits use short, sentence-style messages such as `Adjust needed packages, and build out home page and privacy page.` Keep commits focused and mention the user-visible area changed.
 
 Pull requests should include a concise summary, the commands run to verify, and screenshots for visual changes. Note whether `docs/` was regenerated — it should be, in the same commit as the source change.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

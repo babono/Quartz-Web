@@ -38,5 +38,7 @@ npm run optimize:images   # regenerate public/assets/*.webp from assets-src/
 
 ## Conventions
 
-- Section components are server components with no client JS. The FAQ accordion uses native `<details name="faq">` rather than a click handler — keep it that way unless there's a reason not to.
+- Everything is a server component except `components/NavLinks.tsx`, which needs scroll position. Keep that boundary as small as it is: the FAQ accordion is a native `<details name="faq">`, not a click handler.
+- `components/QuartzLogo.tsx` is the brand mark as an inline SVG path, traced from the sheet in `assets-src/`. It inherits color via `currentColor`. `app/icon.svg` is the same mark on the brand gradient and generates the favicon and apple-touch-icon.
+- The nav scroll-spy marks the current link with `aria-current="true"`, styled in `globals.css`. It treats "current" as *the last section whose top has passed the header* — not "which section is visible" — so the stretches belonging to no nav item (hero, CTA banner) don't blank the nav out. `HEADER_OFFSET` in `NavLinks.tsx` and `section[id]`'s `scroll-margin-top` in `globals.css` describe the same header height; change them together.
 - Tailwind scans source files for literal class strings, so write conditional classes out in full rather than building them from template pieces.

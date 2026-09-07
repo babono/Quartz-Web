@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { QuartzLogo } from "@/components/QuartzLogo";
 import { site } from "@/lib/site";
 
 export function SiteFooter() {
@@ -9,9 +10,7 @@ export function SiteFooter() {
           className="flex items-center gap-1 font-bold text-ink no-underline hover:text-white"
           href="/"
         >
-          <span className="text-neon-purple" aria-hidden="true">
-            ◆
-          </span>
+          <QuartzLogo className="h-5 w-auto text-neon-purple" />
           <span>{site.name}</span>
         </Link>
         <div className="nav-links">

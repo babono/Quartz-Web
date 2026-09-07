@@ -44,6 +44,12 @@
     @apply min-h-[80vh];
   }
 
+  /* The header is sticky, so anchor jumps would otherwise land with the
+     section heading hidden underneath it. */
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     @apply font-display tracking-tight text-ink;
   }
@@ -134,7 +140,18 @@
   }
 
   .nav-links a {
-    @apply text-sm font-medium text-muted no-underline transition-colors hover:text-white hover:no-underline;
+    @apply relative text-sm font-medium text-muted no-underline transition-colors hover:text-white hover:no-underline;
+  }
+
+  /* Set by the scroll-spy in components/NavLinks.tsx. */
+  .nav-links a[aria-current="true"] {
+    @apply text-white;
+  }
+
+  .nav-links a[aria-current="true"]::after {
+    content: "";
+    @apply absolute -bottom-2 left-0 h-0.5 w-full rounded-full;
+    background: linear-gradient(90deg, #a626f2 0%, #1307f5 100%);
   }
 
   .container-custom {
