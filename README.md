@@ -6,6 +6,8 @@ Live at **https://www.quartz-focus.com**
 
 Built with [Next.js 16](https://nextjs.org) (App Router) in static-export mode, [Tailwind CSS v4](https://tailwindcss.com), and TypeScript. The whole site is prerendered to plain HTML — there is no server at runtime.
 
+Colours, typeface, artwork and motion are taken from the Quartz iOS app so the two read as one product. `CLAUDE.md` has the table mapping each site value back to its Swift source.
+
 ## Getting started
 
 ```bash
@@ -43,6 +45,8 @@ lib/
   site.ts           Site constants, nav, assetPath()
   markdown.ts       Frontmatter + Markdown -> HTML
 assets-src/         Full-resolution image originals (not published)
+  app/              Artwork copied from the iOS app
+fonts/              Stack Sans (SIL OFL 1.1) + license
 public/assets/      Generated, web-ready WebP images
 scripts/            Image optimizer + docs/ publish step
 docs/               Generated static site — committed, this is what Pages serves
@@ -53,7 +57,8 @@ docs/               Generated static site — committed, this is what Pages serv
 - **Landing page copy** lives in the section components under `components/home/`.
 - **Privacy Policy / Terms** are Markdown in `content/`. Add a new `content/<name>.md` with a `title:` in the frontmatter and it is published at `/<name>` automatically.
 - **Colors, fonts, and component styles** are all in `app/globals.css`.
-- **Images**: drop the original into `assets-src/`, add an entry to the `images` array in `scripts/optimize-images.mjs` with the width you need, then run `npm run optimize:images`.
+- **Images**: drop the original into `assets-src/` (or `assets-src/app/` if it came from the iOS app), add an entry to the `images` array in `scripts/optimize-images.mjs` with the width you need, then run `npm run optimize:images`.
+- **The shielded-app demo** in section 1 is `components/home/ShieldDemo.tsx`. Its copy is a verbatim copy of the app's depleted-quota shield; if that changes in the app, change it here too.
 
 ## Deploying
 
@@ -75,6 +80,6 @@ To drop the committed build output, switch **Settings → Pages → Source** to 
 
 ## Performance notes
 
-- Images are pre-resized and converted to WebP at build time (`static export` has no image optimization server). This took the hero image from 17 MB to 179 KB.
-- Fonts are self-hosted by `next/font`, so there is no render-blocking request to Google Fonts and no layout shift.
+- Images are pre-resized and converted to WebP at build time (`static export` has no image optimization server). All artwork on the page totals ~300 KB.
+- One self-hosted variable font (52 KB) covers every weight, replacing the 272 KB of Inter + Outfit the site used to pull from Google Fonts. No render-blocking request, no layout shift.
 - The FAQ accordion uses native `<details name="faq">`, so the page ships no interaction JavaScript.

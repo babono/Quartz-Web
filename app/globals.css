@@ -2,13 +2,14 @@
 
 /* ── Design tokens ───────────────────────────────────────────────────────── */
 @theme {
-  /* Font families are injected by next/font in app/layout.tsx, which
-     self-hosts the files and removes the render-blocking Google Fonts call. */
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+  /* Type: Stack Sans, the app's typeface (SIL OFL 1.1). One variable file
+     covers every weight the app uses — see fonts/OFL.txt. */
+  --font-sans: var(--font-stack-sans), ui-sans-serif, system-ui, -apple-system,
     BlinkMacSystemFont, sans-serif;
-  --font-display: var(--font-outfit), ui-sans-serif, system-ui, -apple-system,
+  --font-display: var(--font-stack-sans), ui-sans-serif, system-ui, -apple-system,
     BlinkMacSystemFont, sans-serif;
 
+  /* Surfaces — the app runs pure black with near-black cards. */
   --color-ink: #ffffff;
   --color-muted: #8e9bb0;
   --color-surface: #0a0b0d;
@@ -18,11 +19,22 @@
   --color-accent: #a626f2;
   --color-accent-dark: #8c1cd1;
 
-  --color-neon-purple: #a626f2;
-  --color-neon-blue: #1307f5;
-  --color-neon-magenta: #f22e9e;
-  --color-neon-green: #33e06b;
-  --color-neon-cyan: #0281ff;
+  /* Accents lifted from the app. The comment on each names the Swift source,
+     so a change there has an obvious counterpart here. */
+  --color-neon-purple: #a626f2;   /* OnboardingView.purpleGlow */
+  --color-neon-blue: #1307f5;     /* FigmaNeonBox.blueTimer */
+  --color-neon-magenta: #f22e9e;  /* AttentionGym: Memory Pattern */
+  --color-neon-green: #33e06b;    /* AttentionGym: Word Search */
+  --color-neon-cyan: #338cff;     /* AttentionGym: Connect Dots */
+  --color-neon-violet: #ad38ff;   /* AttentionGym: Wave Runner */
+
+  --color-quartz: #a944fb;        /* FigmaNeonBox.purplePrismas */
+  --color-shield: #d053f5;        /* Shield primary button */
+  --color-streak: #f41010;        /* FigmaNeonBox.orangeStreak */
+  --color-streak-glow: #ffe554;
+  --color-timer-cyan: #04fddf;    /* blueTimer drop shadow */
+  --color-cta-from: #57c7ff;      /* OnboardingView.ctaBlueGradient */
+  --color-cta-to: #001a81;
 }
 
 /* ── Base ────────────────────────────────────────────────────────────────── */
@@ -189,27 +201,79 @@
   }
 
   .glow-cyan {
-    box-shadow: 0 0 30px -10px rgba(2, 129, 255, 0.2);
+    box-shadow: 0 0 30px -10px rgba(51, 140, 255, 0.2);
+  }
+
+  .glow-violet {
+    box-shadow: 0 0 30px -10px rgba(173, 56, 255, 0.2);
+  }
+
+  /* The onboarding drifts its cards rather than holding them still. Staggered
+     per card via an inline animation-delay so they never move in lockstep. */
+  .float-card {
+    animation: card-float 4.2s ease-in-out infinite alternate;
+  }
+
+  @keyframes card-float {
+    from { transform: translateY(0); }
+    to   { transform: translateY(-7px); }
   }
 
   .bg-orb {
     @apply absolute rounded-full blur-[120px] pointer-events-none opacity-20;
   }
 
+  /* ── Motion, matched to OnboardingView.swift ──────────────────────────
+     The app breathes its hero art with `.easeInOut(duration: 3.5)
+     .repeatForever(autoreverses: true)` over scaleEffect 1.0 -> 1.03, and
+     drifts the background ornaments on 5.5s / 4.2s with opacity 0.60 -> 0.80.
+     These keyframes reuse those durations and amplitudes so the site and the
+     onboarding feel like one product. */
   .pulse-breathing {
-    animation: breathing 4s ease-in-out infinite alternate;
+    animation: breathing 3.5s ease-in-out infinite alternate;
   }
 
   @keyframes breathing {
-    0% {
-      opacity: 0.6;
-      transform: scale(0.98);
-      filter: drop-shadow(0 0 15px rgba(166, 38, 242, 0.3));
+    from {
+      transform: scale(1);
+      filter: drop-shadow(0 0 18px rgba(166, 38, 242, 0.35));
     }
-    100% {
-      opacity: 1;
-      transform: scale(1.02);
-      filter: drop-shadow(0 0 35px rgba(166, 38, 242, 0.6));
+    to {
+      transform: scale(1.03);
+      filter: drop-shadow(0 0 38px rgba(166, 38, 242, 0.6));
+    }
+  }
+
+  /* The app's `ornament-rectcircle-*` art: a wide arch of coloured light
+     bleeding up from behind the content. Rebuilt as a gradient so it costs
+     nothing to download and can be tinted per section. */
+  .ornament {
+    @apply pointer-events-none absolute left-1/2 -translate-x-1/2 blur-[90px] opacity-60;
+    border-radius: 46% 46% 42% 42% / 60% 60% 40% 40%;
+    background: radial-gradient(
+      ellipse at 50% 85%,
+      var(--ornament-color, #a626f2) 0%,
+      color-mix(in srgb, var(--ornament-color, #a626f2) 45%, transparent) 45%,
+      transparent 72%
+    );
+    animation: ornament-drift 5.5s ease-in-out infinite alternate;
+  }
+
+  .ornament-slow {
+    animation-duration: 4.2s;
+  }
+
+  /* Centring is left to the `translate` property from `-translate-x-1/2`, which
+     Tailwind v4 emits separately from `transform`. Repeating translateX(-50%)
+     here would compose with it and shove the glow a full width off-centre. */
+  @keyframes ornament-drift {
+    from {
+      transform: translateY(0) scale(1);
+      opacity: 0.6;
+    }
+    to {
+      transform: translateY(-11px) scale(1.04);
+      opacity: 0.8;
     }
   }
 
@@ -283,6 +347,60 @@
 
   .faq-answer {
     @apply mt-3 text-sm text-muted leading-relaxed;
+  }
+}
+
+/* ── Shielded-app demo (components/home/ShieldDemo.tsx) ──────────────────── */
+@layer components {
+  /* One 9s timeline shared by all three pieces:
+       0-18%   home screen, nothing happening
+       18-24%  the tap lands on a shielded app
+       24-32%  the shield takes over
+       32-92%  the shield holds, long enough to read
+       92-100% back to the home screen  */
+  .shield-demo-tap {
+    opacity: 0;
+    animation: shield-tap 9s ease-in-out infinite;
+  }
+
+  @keyframes shield-tap {
+    0%, 17% { opacity: 0; transform: scale(1); }
+    20%     { opacity: 1; transform: scale(0.88); }
+    26%     { opacity: 0; transform: scale(1.35); }
+    100%    { opacity: 0; transform: scale(1.35); }
+  }
+
+  .shield-demo-tile[data-target] {
+    animation: shield-tile-press 9s ease-in-out infinite;
+  }
+
+  @keyframes shield-tile-press {
+    0%, 17%  { transform: scale(1); }
+    21%      { transform: scale(0.9); }
+    26%, 100% { transform: scale(1); }
+  }
+
+  .shield-demo-shield {
+    opacity: 0;
+    animation: shield-reveal 9s ease-in-out infinite;
+  }
+
+  @keyframes shield-reveal {
+    0%, 24%   { opacity: 0; transform: translateY(14px); }
+    32%, 92%  { opacity: 1; transform: translateY(0); }
+    100%      { opacity: 0; transform: translateY(14px); }
+  }
+
+  /* With motion suppressed the animation never runs, so the shield has to be
+     left in its meaningful state rather than invisible. */
+  @media (prefers-reduced-motion: reduce) {
+    .shield-demo-shield {
+      opacity: 1;
+      transform: none;
+    }
+    .shield-demo-tap {
+      opacity: 0;
+    }
   }
 }
 

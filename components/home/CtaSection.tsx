@@ -3,9 +3,12 @@ import { site } from "@/lib/site";
 export function CtaSection() {
   return (
     <section className="relative py-20 md:py-28 overflow-hidden">
-      <div className="bg-orb w-full h-full top-0 left-0 opacity-5 bg-gradient-to-br from-neon-purple to-neon-blue" />
+      <div
+        className="ornament h-[420px] w-[130%] top-0"
+        style={{ ["--ornament-color" as string]: "#57c7ff" }}
+      />
       <div className="container-custom relative z-10 flex flex-col items-center text-center gap-6">
-        <h2 className="font-display text-3xl md:text-5xl font-extrabold tracking-tight">
+        <h2 className="font-display text-3xl font-bold tracking-tight md:text-5xl">
           Ready to take your{" "}
           <span className="gradient-text-purple-blue">attention back?</span>
         </h2>

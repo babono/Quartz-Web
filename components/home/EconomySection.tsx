@@ -1,7 +1,10 @@
+import Image from "next/image";
+import { assetPath } from "@/lib/site";
+
 const rows = [
   { time: "0 min", multiplier: "1.00×", multiplierClass: "text-muted", saved: "45 min", reward: "45 Quartz" },
   { time: "60 min", multiplier: "1.20×", multiplierClass: "text-neon-cyan", saved: "40 min", reward: "48 Quartz" },
-  { time: "120 min", multiplier: "1.40×", multiplierClass: "text-neon-blue", saved: "35 min", reward: "49 Quartz" },
+  { time: "120 min", multiplier: "1.40×", multiplierClass: "text-neon-cyan", saved: "35 min", reward: "49 Quartz" },
   { time: "180 min", multiplier: "1.60×", multiplierClass: "text-neon-purple", saved: "30 min", reward: "48 Quartz" },
   { time: "240 min", multiplier: "1.80×", multiplierClass: "text-neon-magenta", saved: "25 min", reward: "45 Quartz" },
   {
@@ -16,8 +19,11 @@ const rows = [
 
 export function EconomySection() {
   return (
-    <section className="relative py-20 md:py-32 bg-surface/30" id="economy">
-      <div className="bg-orb w-[400px] h-[400px] left-1/2 -translate-x-1/2 top-0 bg-neon-purple opacity-10" />
+    <section className="relative overflow-hidden py-20 md:py-32" id="economy">
+      <div
+        className="ornament ornament-slow h-[520px] w-[120%] top-0"
+        style={{ ["--ornament-color" as string]: "#a944fb" }}
+      />
 
       <div className="container-custom relative z-10">
         <div className="text-center mb-14">
@@ -68,12 +74,19 @@ export function EconomySection() {
                     <td>{row.saved}</td>
                     <td>
                       <span
-                        className={
+                        className={`inline-flex items-center gap-1.5 ${
                           "max" in row && row.max
-                            ? "text-neon-green font-extrabold text-base"
-                            : "text-neon-green font-bold"
-                        }
+                            ? "text-base font-bold text-neon-green"
+                            : "font-bold text-neon-green"
+                        }`}
                       >
+                        <Image
+                          src={assetPath("/assets/ic-quartz.webp")}
+                          alt=""
+                          width={96}
+                          height={144}
+                          className="h-3.5 w-auto"
+                        />
                         {row.reward}
                       </span>
                     </td>

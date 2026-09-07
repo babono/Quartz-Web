@@ -9,7 +9,8 @@ A Next.js 16 (App Router) site built in static-export mode and served by GitHub 
 - `components/home/` holds the landing page sections; `components/SiteHeader.tsx` and `SiteFooter.tsx` are the shared chrome.
 - `lib/site.ts` holds site constants, nav links, and `assetPath()`; `lib/markdown.ts` turns `content/*.md` into HTML.
 - `content/*.md` are source content files with `title:` frontmatter.
-- `assets-src/` holds full-resolution image originals; `public/assets/` holds the generated WebP files that the site actually references.
+- `assets-src/` holds full-resolution image originals, with `assets-src/app/` holding artwork copied from the Quartz iOS app; `public/assets/` holds the generated WebP files the site references.
+- `fonts/` holds Stack Sans (the app's typeface) plus the SIL OFL license that must ship with it.
 - `docs/` is generated production output and **is committed** — regenerate it with `npm run build` after any change that affects the rendered site.
 
 ## Build, Test, and Development Commands
@@ -27,7 +28,9 @@ Two-space indentation, `PascalCase` for components and types, `camelCase` for fu
 
 Keep sections as server components — no `"use client"` unless a feature genuinely needs browser state. `components/NavLinks.tsx` is the only client component; it reads scroll position to highlight the current section. Prefer native HTML behaviour over JavaScript (the FAQ is a `<details name="faq">` accordion). Drive repeated markup from a local `const` array rather than copy-pasting blocks.
 
-Tailwind v4 scans source files for literal class strings, so write conditional class names out in full instead of assembling them from fragments at runtime. Design tokens and shared component classes belong in `app/globals.css`, not in ad-hoc utility soup.
+Tailwind v4 scans source files for literal class strings, so write conditional class names out in full instead of assembling them from fragments at runtime. Note that v4 emits `-translate-x-*` as the standalone `translate` property, which composes with `transform` rather than being overridden by it — never repeat the translation inside a keyframe.
+
+Colours, motion timings and UI copy that mirror the iOS app carry a comment naming the Swift file they came from. Keep those references correct; they are how the two stay in sync. Design tokens and shared component classes belong in `app/globals.css`, not in ad-hoc utility soup.
 
 Reference `public/` assets through `assetPath()` — `next/image` does not apply `basePath` to `unoptimized` sources. `basePath` is empty today, but keeping the helper means a future move back to a subpath is a one-line change.
 

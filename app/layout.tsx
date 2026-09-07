@@ -1,24 +1,21 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Outfit } from "next/font/google";
+import localFont from "next/font/local";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-// Self-hosted at build time: no render-blocking request to fonts.googleapis.com,
-// and no layout shift thanks to the automatic size-adjusted fallback.
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-inter",
+// Stack Sans — the typeface the iOS app uses (SIL OFL 1.1, see fonts/OFL.txt).
+// One variable file spans the whole 200-700 axis, so every weight the app uses
+// (Regular 400, SemiBold 600, Bold 700) comes from a single 50KB request.
+const stackSans = localFont({
+  src: "../fonts/StackSansText-Variable.woff2",
+  // The font's default instance is ExtraLight; declaring the full axis stops
+  // the browser clamping every weight to it.
+  weight: "200 700",
+  variable: "--font-stack-sans",
   display: "swap",
-});
-
-const outfit = Outfit({
-  subsets: ["latin"],
-  weight: ["600", "700", "800"],
-  variable: "--font-outfit",
-  display: "swap",
+  fallback: ["ui-sans-serif", "system-ui", "-apple-system", "sans-serif"],
 });
 
 export const metadata: Metadata = {
@@ -55,7 +52,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en-US" className={`${inter.variable} ${outfit.variable}`}>
+    <html lang="en-US" className={stackSans.variable}>
       <body>
         <SiteHeader />
         <main>{children}</main>

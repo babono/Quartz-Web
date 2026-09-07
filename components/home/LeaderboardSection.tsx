@@ -3,17 +3,17 @@ import { assetPath } from "@/lib/site";
 
 const perks = [
   {
-    icon: "🔥",
+    icon: "streak",
     title: "Daily Streaks",
     body: "Keep your focus monitor active every day to build a streak. Miss a day and it resets.",
   },
   {
-    icon: "🏆",
+    icon: "quartz",
     title: "Quartz Rankings",
     body: "Your Quartz balance determines your rank on the global leaderboard.",
   },
   {
-    icon: "📊",
+    icon: "chart",
     title: "Reflect & Improve",
     body: "Weekly reflections and daily habit snapshots help you understand your scrolling patterns.",
   },
@@ -21,21 +21,22 @@ const perks = [
 
 export function LeaderboardSection() {
   return (
-    <section className="relative py-20 md:py-32" id="rank">
-      <div className="bg-orb w-[400px] h-[400px] -right-20 top-0 bg-neon-green opacity-10" />
+    <section className="relative overflow-hidden py-20 md:py-32" id="rank">
+      <div
+        className="ornament h-[520px] w-[120%] top-0"
+        style={{ ["--ornament-color" as string]: "#33e06b" }}
+      />
 
       <div className="container-custom relative z-10">
         <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
           <div className="flex-1 flex justify-center md:justify-start">
-            <div className="glass-card glow-green p-2 max-w-xs w-full">
-              <Image
-                src={assetPath("/assets/rank-fix.webp")}
-                alt="Quartz leaderboard showing ranked users and streak badges"
-                width={640}
-                height={1392}
-                className="w-full h-auto rounded-xl"
-              />
-            </div>
+            <Image
+              src={assetPath("/assets/leaderboard.webp")}
+              alt="The Quartz leaderboard podium: three ranked players with their Quartz balances"
+              width={840}
+              height={872}
+              className="pulse-breathing w-full max-w-sm"
+            />
           </div>
 
           <div className="flex-1">
@@ -54,9 +55,23 @@ export function LeaderboardSection() {
             <div className="flex flex-col gap-4">
               {perks.map((perk) => (
                 <div key={perk.title} className="flex items-start gap-3">
-                  <span className="flex-shrink-0 text-xl" aria-hidden="true">
-                    {perk.icon}
-                  </span>
+                  {perk.icon === "chart" ? (
+                    <span className="flex-shrink-0 text-xl" aria-hidden="true">
+                      📊
+                    </span>
+                  ) : (
+                    <Image
+                      src={assetPath(
+                        perk.icon === "streak"
+                          ? "/assets/ic-streak.webp"
+                          : "/assets/ic-quartz.webp",
+                      )}
+                      alt=""
+                      width={96}
+                      height={110}
+                      className="h-5 w-auto flex-shrink-0"
+                    />
+                  )}
                   <div>
                     <p className="text-ink font-semibold text-sm mb-0.5">
                       {perk.title}
