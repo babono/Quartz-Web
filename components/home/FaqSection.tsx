@@ -44,9 +44,9 @@ const faqs: Faq[] = [
   {
     question: "Can I bypass the app shield?",
     plain:
-      "Not easily. Because Quartz uses Apple's native Screen Time Restrictions API, the block happens at the OS level. There are no browser workarounds or VPN bypasses. The only built-in override is the Emergency Unpause, which resets your streak as a consequence.",
+      "Not easily. Because Quartz uses Apple's native Screen Time Restrictions API, the block happens at the OS level. There are no browser workarounds or VPN bypasses. The only built-in override is the Emergency Unpause, and it costs you: your Quartz balance drops to zero and the rest of the day stops counting toward your streak.",
     answer:
-      "Not easily. Because Quartz uses Apple's native Screen Time Restrictions API, the block happens at the OS level. There are no browser workarounds or VPN bypasses. The only built-in override is the Emergency Unpause, which resets your streak as a consequence.",
+      "Not easily. Because Quartz uses Apple's native Screen Time Restrictions API, the block happens at the OS level. There are no browser workarounds or VPN bypasses. The only built-in override is the Emergency Unpause, and it costs you: your Quartz balance drops to zero and the rest of the day stops counting toward your streak.",
   },
 ];
 

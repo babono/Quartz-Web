@@ -15,6 +15,7 @@ export function SiteFooter() {
           <span>{site.name}</span>
         </Link>
         <div className="nav-links">
+          <Link href="/support">Support</Link>
           <Link href="/privacy-policy">Privacy Policy</Link>
           <Link href="/terms-of-service">Terms of Service</Link>
         </div>
