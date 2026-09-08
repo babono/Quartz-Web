@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AppleLogo } from "@/components/AppleLogo";
 import { QuartzLogo } from "@/components/QuartzLogo";
 import { site } from "@/lib/site";
 
@@ -19,7 +20,12 @@ export function SiteFooter() {
         </div>
       </nav>
       <p>
-        Built at Apple Developer Academy Bali. {site.name} Website © 2026.
+        Built at{" "}
+        {/* Inline rather than flexed so the credit still wraps as text on
+            narrow screens. */}
+        <AppleLogo className="inline-block h-[0.95em] w-auto -translate-y-[0.09em] align-middle text-ink" />{" "}
+        <span className="text-ink">Apple Developer Academy Bali.</span>{" "}
+        {site.name} Website © 2026.
       </p>
     </footer>
   );
