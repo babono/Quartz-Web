@@ -71,7 +71,7 @@ export function FaqSection() {
       <div className="container-custom relative z-10 max-w-3xl mx-auto">
         <div className="text-center mb-14">
           <p className="text-xs font-bold tracking-widest text-neon-purple uppercase mb-3">
-            05 — FAQ
+            07 — FAQ
           </p>
           <h2 className="font-display text-3xl md:text-4xl font-bold">
             Frequently asked questions.

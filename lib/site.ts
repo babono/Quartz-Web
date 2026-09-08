@@ -12,6 +12,8 @@ export const navLinks = [
   { href: "/#gym", label: "Attention Gym" },
   { href: "/#economy", label: "Focus Economy" },
   { href: "/#rank", label: "Leaderboard" },
+  { href: "/#tech", label: "Tech Stack" },
+  { href: "/#accessibility", label: "Accessibility" },
   { href: "/#faq", label: "FAQ" },
 ] as const;
 

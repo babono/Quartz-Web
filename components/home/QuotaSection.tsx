@@ -44,7 +44,7 @@ export function QuotaSection() {
             </p>
             <h2 className="mb-5 font-display text-3xl font-bold md:text-4xl">
               Social feeds are designed to{" "}
-              <span className="gradient-text-cyan-blue">
+              <span className="text-highlight-blue">
                 trap your attention.
               </span>{" "}
               We break the loop.

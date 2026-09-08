@@ -10,7 +10,7 @@ const rows = [
   {
     time: "300 min ⚡",
     multiplier: "2.00× MAX",
-    multiplierClass: "gradient-text-purple-blue font-extrabold",
+    multiplierClass: "text-highlight-quartz font-extrabold",
     saved: "20 min",
     reward: "40 Quartz",
     max: true,
@@ -32,7 +32,7 @@ export function EconomySection() {
           </p>
           <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
             Dopamine balancing{" "}
-            <span className="gradient-text-purple-blue">by design.</span>
+            <span className="text-highlight-quartz">by design.</span>
           </h2>
           <p className="text-muted max-w-xl mx-auto">
             Focus isn&apos;t just about blocking. It earns. The longer your focus

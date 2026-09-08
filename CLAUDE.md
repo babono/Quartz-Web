@@ -41,6 +41,8 @@ The site deliberately mirrors the Quartz iOS app at `/Users/babono/Dev/boahlil`.
 | `--color-neon-*` in `app/globals.css` | `Views/AttentionGymView.swift` (per-game accents), `Components/FigmaNeonBox.swift` (glows) |
 | Motion durations in `app/globals.css` | `Views/OnboardingView.swift` — 3.5s hero breathe, 5.5s/4.2s ornament drift, opacity 0.60→0.80 |
 | `components/home/ShieldDemo.tsx` copy | `BoahlilShieldConfiguration/ShieldConfigurationExtension.swift` — the demo uses the `hasQuota == false` branch verbatim |
+| `components/home/TechStackSection.tsx` | `Services/CloudKitService.swift`, the `*.entitlements` files, and the framework imports — every claim there is checked against real code |
+| `components/home/AccessibilitySection.tsx` | `relativeTo:` (Dynamic Type), `accessibilityReduceMotion`, `accessibilityLabel`, `preferredColorScheme` |
 | `assets-src/app/*` | `boahlil/Assets.xcassets/*` — game art, quota ring, leaderboard podium, crystal, icons |
 | `app/icon.png`, `apple-icon.png`, `favicon.ico` | `Assets.xcassets/AppIcon.appiconset` |
 | `fonts/` | `boahlil/Fonts/StackSans-VariableFont_wght.ttf` |
@@ -60,6 +62,8 @@ Stack Sans, the app's typeface, self-hosted from `fonts/StackSansText-Variable.w
 - Everything is a server component except `components/NavLinks.tsx`, which needs scroll position. Keep that boundary as small as it is: the FAQ accordion is a native `<details name="faq">`, not a click handler.
 - `components/QuartzLogo.tsx` is the brand mark as an inline SVG path, traced from the sheet in `assets-src/`. It inherits color via `currentColor`. `app/icon.svg` is the same mark on the brand gradient and generates the favicon and apple-touch-icon.
 - The nav scroll-spy marks the current link with `aria-current="true"`, styled in `globals.css`. It treats "current" as *the last section whose top has passed the header* — not "which section is visible" — so the stretches belonging to no nav item (hero, CTA banner) don't blank the nav out. `HEADER_OFFSET` in `NavLinks.tsx` and `section[id]`'s `scroll-margin-top` in `globals.css` describe the same header height; change them together.
+- **Headline highlights are solid colours, never gradients.** A gradient spends part of its run at low contrast, and the dark end of the brand ramp (`#1307f5`) reads ~2:1 on black. Use `.text-highlight-*`; gradients survive only as button fills under white text. `#a626f2` is also too dark for type — `--color-neon-purple-bright` exists for that.
+- The nav shows at `lg`, not `md`: seven items overflowed 768px viewports.
 - Tailwind scans source files for literal class strings, so write conditional classes out in full rather than building them from template pieces.
 - **Tailwind v4 emits `-translate-x-*` as the standalone `translate` property, not as `transform`.** The two compose rather than overriding, so a keyframe that also sets `translateX(-50%)` doubles the shift. Animate `transform` only, and leave centring to the utility — this already bit the `.ornament` glows once.
 - The animated pieces (`.ornament`, `.float-card`, `ShieldDemo`) are pure CSS. Anything that conveys meaning must stay legible under `prefers-reduced-motion`, where animations do not run — see the reduced-motion block that pins the shield open.

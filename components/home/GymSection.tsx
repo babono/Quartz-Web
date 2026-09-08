@@ -96,7 +96,7 @@ export function GymSection() {
           </p>
           <h2 className="mb-4 font-display text-3xl font-bold md:text-4xl">
             Don&apos;t quit cold turkey.{" "}
-            <span className="gradient-text-purple-blue">Train instead.</span>
+            <span className="text-highlight-magenta">Train instead.</span>
           </h2>
           <p className="mx-auto max-w-2xl text-muted">
             When your quota runs low, don&apos;t panic. Head to the Attention Gym

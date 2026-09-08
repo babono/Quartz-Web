@@ -31,7 +31,7 @@ export function Hero() {
           </div>
 
           <h1 className="font-display text-5xl font-bold leading-tight tracking-tight md:text-7xl">
-            <span className="gradient-text-purple-blue">Reduce Noise.</span>
+            <span className="text-highlight-purple">Reduce Noise.</span>
             <br />
             Regain Focus.
           </h1>
