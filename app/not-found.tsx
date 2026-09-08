@@ -8,7 +8,7 @@ export default function NotFound() {
       </p>
       <h1 className="font-display text-4xl font-extrabold md:text-5xl">
         This page went{" "}
-        <span className="gradient-text-purple-blue">off the grid.</span>
+        <span className="text-highlight-purple">off the grid.</span>
       </h1>
       <p className="max-w-md text-muted">
         The page you were looking for doesn&apos;t exist — or it moved somewhere
