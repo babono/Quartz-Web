@@ -19,8 +19,7 @@ export function SiteFooter() {
         </div>
       </nav>
       <p>
-        Built with{" "}
-        <a href="https://nextjs.org">Next.js.</a> {site.name} Website © 2026.
+        Built at Apple Developer Academy Bali. {site.name} Website © 2026.
       </p>
     </footer>
   );
