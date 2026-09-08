@@ -83,11 +83,11 @@ function WaveArt() {
 
 export function GymSection() {
   return (
-    <section className="relative overflow-hidden py-20 md:py-32" id="gym">
-      <div
-        className="ornament h-[560px] w-[120%] top-10"
-        style={{ ["--ornament-color" as string]: "#f22e9e" }}
-      />
+    <section
+      className="section-glow relative overflow-hidden py-20 md:py-32"
+      id="gym"
+      style={{ ["--section-glow" as string]: "#f22e9e" }}
+    >
 
       <div className="container-custom relative z-10">
         <div className="mb-14 text-center">

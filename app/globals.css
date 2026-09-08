@@ -219,10 +219,6 @@
     to   { transform: translateY(-7px); }
   }
 
-  .bg-orb {
-    @apply absolute rounded-full blur-[120px] pointer-events-none opacity-20;
-  }
-
   /* ── Motion, matched to OnboardingView.swift ──────────────────────────
      The app breathes its hero art with `.easeInOut(duration: 3.5)
      .repeatForever(autoreverses: true)` over scaleEffect 1.0 -> 1.03, and
@@ -244,45 +240,76 @@
     }
   }
 
-  /* The app's `ornament-rectcircle-*` art: a wide arch of coloured light
-     bleeding up from behind the content. Rebuilt as a gradient so it costs
-     nothing to download and can be tinted per section. */
-  .ornament {
-    @apply pointer-events-none absolute left-1/2 -translate-x-1/2 blur-[90px] opacity-60;
-    border-radius: 46% 46% 42% 42% / 60% 60% 40% 40%;
-    background: radial-gradient(
-      ellipse at 50% 85%,
-      var(--ornament-color, #a626f2) 0%,
-      color-mix(in srgb, var(--ornament-color, #a626f2) 45%, transparent) 45%,
-      transparent 72%
-    );
-    animation: ornament-drift 5.5s ease-in-out infinite alternate;
+  /* ── Section backgrounds ──────────────────────────────────────────────
+     Each section paints black -> its accent -> black down the page, so
+     neighbouring sections always meet in pure black and the seam disappears.
+     The earlier version was a blurred blob clipped by `overflow-hidden`,
+     which cut a hard horizontal line at every section boundary.
+
+     Layer order (top to bottom):
+       1. black caps that guarantee the first and last rows are pure black
+       2. the accent bloom, an ellipse so it falls off sideways too
+       3. a black base                                                      */
+  .section-glow {
+    position: relative;
   }
 
-  .ornament-slow {
-    animation-duration: 4.2s;
+  .section-glow::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(
+        180deg,
+        #000 0%,
+        transparent 28%,
+        transparent 72%,
+        #000 100%
+      ),
+      radial-gradient(
+        ellipse 72% 58% at 50% 50%,
+        color-mix(in srgb, var(--section-glow, #a626f2) 26%, transparent) 0%,
+        color-mix(in srgb, var(--section-glow, #a626f2) 9%, transparent) 45%,
+        transparent 72%
+      );
+    background-color: #000;
+    /* The onboarding never holds its glows perfectly still. */
+    animation: section-bloom 5.5s ease-in-out infinite alternate;
   }
 
-  /* Centring is left to the `translate` property from `-translate-x-1/2`, which
-     Tailwind v4 emits separately from `transform`. Repeating translateX(-50%)
-     here would compose with it and shove the glow a full width off-centre. */
-  @keyframes ornament-drift {
-    from {
-      transform: translateY(0) scale(1);
-      opacity: 0.6;
-    }
-    to {
-      transform: translateY(-11px) scale(1.04);
-      opacity: 0.8;
-    }
+  /* The hero carries the page, so it blooms harder. */
+  .section-glow-strong::before {
+    background:
+      linear-gradient(
+        180deg,
+        transparent 0%,
+        transparent 74%,
+        #000 100%
+      ),
+      radial-gradient(
+        ellipse 80% 62% at 50% 42%,
+        color-mix(in srgb, var(--section-glow, #a626f2) 40%, transparent) 0%,
+        color-mix(in srgb, var(--section-glow, #a626f2) 14%, transparent) 45%,
+        transparent 74%
+      );
+    background-color: #000;
   }
 
+  @keyframes section-bloom {
+    from { opacity: 0.85; }
+    to   { opacity: 1; }
+  }
+
+  /* Ends on the lighter app blue, not #1307f5 — that reads at 2.2:1 on black
+     and all but disappears. #1307f5 stays a glow/fill colour only. */
   .gradient-text-purple-blue {
-    @apply bg-gradient-to-r from-neon-purple to-neon-blue bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-neon-purple to-neon-cyan bg-clip-text text-transparent;
   }
 
   .gradient-text-cyan-blue {
-    @apply bg-gradient-to-r from-neon-cyan to-neon-blue bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[#57c7ff] to-neon-cyan bg-clip-text text-transparent;
   }
 
   .glowing-btn {

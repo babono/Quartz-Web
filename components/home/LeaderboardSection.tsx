@@ -21,11 +21,11 @@ const perks = [
 
 export function LeaderboardSection() {
   return (
-    <section className="relative overflow-hidden py-20 md:py-32" id="rank">
-      <div
-        className="ornament h-[520px] w-[120%] top-0"
-        style={{ ["--ornament-color" as string]: "#33e06b" }}
-      />
+    <section
+      className="section-glow relative overflow-hidden py-20 md:py-32"
+      id="rank"
+      style={{ ["--section-glow" as string]: "#33e06b" }}
+    >
 
       <div className="container-custom relative z-10">
         <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">

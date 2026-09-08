@@ -18,13 +18,10 @@ function AppleIcon() {
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden min-h-screen flex items-center">
-      {/* The onboarding's purple arch of light, rebuilt in CSS. */}
-      <div
-        className="ornament h-[620px] w-[130%] -top-40"
-        style={{ ["--ornament-color" as string]: "#a626f2" }}
-      />
-      <div className="bg-orb h-[400px] w-[400px] top-1/2 -left-20 bg-neon-blue" />
+    <section
+      className="section-glow section-glow-strong relative flex min-h-screen items-center overflow-hidden"
+      style={{ ["--section-glow" as string]: "#a626f2" }}
+    >
 
       <div className="container-custom relative z-10 flex flex-col items-center text-center gap-10 md:flex-row md:text-left md:gap-16">
         <div className="flex-1 flex flex-col gap-6">

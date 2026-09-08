@@ -30,11 +30,11 @@ const bubbleClasses: Record<(typeof features)[number]["color"], string> = {
 
 export function QuotaSection() {
   return (
-    <section className="relative overflow-hidden py-20 md:py-32" id="quota">
-      <div
-        className="ornament ornament-slow h-[520px] w-[120%] top-0"
-        style={{ ["--ornament-color" as string]: "#1307f5" }}
-      />
+    <section
+      className="section-glow relative overflow-hidden py-20 md:py-32"
+      id="quota"
+      style={{ ["--section-glow" as string]: "#1307f5" }}
+    >
 
       <div className="container-custom relative z-10">
         <div className="flex flex-col items-center gap-12 md:flex-row md:gap-16">
