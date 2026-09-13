@@ -12,13 +12,13 @@ export function CtaSection() {
           <span className="text-highlight-purple">attention back?</span>
         </h2>
         <p className="text-muted max-w-md text-lg">
-          Join Quartz on TestFlight and start breaking the loop today.
+          Download Quartz from the App Store and start breaking the loop today.
         </p>
         <a
           className="glowing-btn text-base px-10 py-4"
-          href={site.testFlightUrl}
+          href={site.appStoreUrl}
         >
-          Download Quartz on TestFlight
+          Download on the App Store
         </a>
       </div>
     </section>

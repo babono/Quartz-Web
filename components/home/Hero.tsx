@@ -14,7 +14,7 @@ export function Hero() {
         <div className="flex-1 flex flex-col gap-6">
           <div className="inline-flex items-center self-center md:self-start gap-2 rounded-full border border-neon-purple/30 bg-neon-purple/10 px-4 py-1.5 text-xs font-semibold text-neon-purple">
             <span aria-hidden="true">◆</span>
-            <span>Now on TestFlight</span>
+            <span>Now on the App Store</span>
           </div>
 
           <h1 className="font-display text-5xl font-bold leading-tight tracking-tight md:text-7xl">
@@ -30,9 +30,9 @@ export function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center self-center md:self-start gap-4 mt-2">
-            <a className="glowing-btn gap-2" href={site.testFlightUrl}>
+            <a className="glowing-btn gap-2" href={site.appStoreUrl}>
               <AppleLogo className="mr-1 inline h-4 w-4" />
-              Download on TestFlight
+              Download on the App Store
             </a>
             <Link className="btn-secondary" href="/#quota">
               How it Works

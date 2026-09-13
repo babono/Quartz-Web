@@ -1,6 +1,6 @@
 /**
  * The Apple logo, used to identify Apple's own products and programmes —
- * the TestFlight download button and the Apple Developer Academy credit.
+ * the App Store download button and the Apple Developer Academy credit.
  * Decorative in both places: the adjacent text already names the thing, so
  * it stays aria-hidden.
  */

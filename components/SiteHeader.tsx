@@ -17,9 +17,9 @@ export function SiteHeader() {
         <div>
           <a
             className="inline-flex items-center justify-center rounded-full bg-neon-purple/20 border border-neon-purple/30 px-4 py-1.5 text-xs font-semibold text-white no-underline hover:bg-neon-purple/40 transition-colors"
-            href={site.testFlightUrl}
+            href={site.appStoreUrl}
           >
-            TestFlight
+            App Store
           </a>
         </div>
       </nav>
